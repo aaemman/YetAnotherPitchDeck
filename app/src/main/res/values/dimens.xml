@@ -1,0 +1,16 @@
+<resources>
+    <!-- Default screen margins, per the Android Design guidelines. -->
+    <dimen name="activity_horizontal_margin">16dp</dimen>
+    <dimen name="activity_vertical_margin">16dp</dimen>
+
+    <dimen name="sliding_tab_strip_default_bottom_border_height">2dp</dimen>
+    <dimen name="sliding_tab_strip_default_divider_height">10dp</dimen>
+    <dimen name="sliding_tab_strip_default_divider_thickness">2dp</dimen>
+    <dimen name="sliding_tab_strip_default_selected_indicator_height">8dp</dimen>
+    <dimen name="sliding_tab_layout_default_title_offset">24dp</dimen>
+    <dimen name="sliding_tab_layout_default_tab_view_top_bottom_padding">4dp</dimen>
+    <dimen name="sliding_tab_layout_default_tab_view_left_right_padding">8dp</dimen>
+    <dimen name="sliding_tab_layout_default_tab_view_text_size">12sp</dimen>
+    <dimen name="standard_toolbar_elevation">4dp</dimen>
+    <dimen name="action_bar_size">56dp</dimen>
+</resources>

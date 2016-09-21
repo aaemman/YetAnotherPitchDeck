@@ -1,0 +1,45 @@
+apply plugin: 'com.android.application'
+
+android {
+    compileSdkVersion 23
+    buildToolsVersion "23.0.2"
+
+    defaultConfig {
+        applicationId "com.yapd.alexander.yapd"
+        minSdkVersion 15
+        targetSdkVersion 23
+        versionCode 1
+        versionName "1.0"
+    }
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+}
+
+ext {
+    supportLibVersion = '23.4.0'
+}
+
+dependencies {
+    compile fileTree(dir: 'libs', include: ['*.jar'])
+    // ------ TEST ONLY DEPENDENCIES ------
+
+    testCompile 'org.assertj:assertj-core:1.7.0'
+    testCompile 'org.mockito:mockito-core:1.9.5'
+    testCompile 'com.greghaskins:spectrum:0.6.1'
+    testCompile 'junit:junit:4.12'
+
+// ------ OTHER DEPENDENCIES ------
+
+    compile "com.android.support:appcompat-v7:${supportLibVersion}"
+    compile "com.android.support:recyclerview-v7:${supportLibVersion}"
+    compile "com.android.support:design:${supportLibVersion}"
+    compile 'com.pnikosis:materialish-progress:1.5'
+    compile 'com.github.bumptech.glide:glide:3.5.2'
+
+    compile fileTree(dir: 'libs', include: ['*.jar'])
+
+}

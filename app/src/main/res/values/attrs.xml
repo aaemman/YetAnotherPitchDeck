@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <declare-styleable name="SlidingTabLayout">
+        <attr name="showBottomBorder" format="boolean" />
+        <attr name="bottomBorderColor" format="color" />
+        <attr name="bottomBorderAlpha" format="integer" />
+        <attr name="bottomBorderHeight" format="dimension" />
+
+        <attr name="showSelectedIndicator" format="boolean" />
+        <attr name="selectedIndicatorColor" format="color" />
+        <attr name="selectedIndicatorAlpha" format="integer" />
+        <attr name="selectedIndicatorHeight" format="dimension" />
+
+        <attr name="showTabDividers" format="boolean" />
+        <attr name="dividerColor" format="color" />
+        <attr name="dividerAlpha" format="integer" />
+        <attr name="dividerHeight" format="dimension" />
+
+        <attr name="titleOffset" format="dimension" />
+        <attr name="tabViewLeftRightPadding" format="dimension" />
+        <attr name="tabViewTopBottomPadding" format="dimension" />
+        <attr name="tabTitleTextSize" format="dimension" />
+
+        <attr name="selectedTabTextColor" format="color" />
+        <attr name="selectedTabTextAlpha" format="integer" />
+
+        <attr name="unSelectedTabTextColor" format="color" />
+        <attr name="unSelectedTabTextAlpha" format="integer" />
+
+        <attr name="highlightSelectedTabTitle" format="boolean" />
+
+        <attr name="distributeEvenly" format="boolean" />
+    </declare-styleable>
+
+</resources>
