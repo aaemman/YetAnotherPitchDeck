@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/view_section_header_layout"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@drawable/transparent_to_gray_25_background"
+    android:clickable="true"
+    android:focusable="true"
+    android:paddingBottom="8dp"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="8dp">
+
+    <com.yapd.alexander.yapd.client.util.widget.custom_text_view.CustomTextView
+        android:id="@+id/view_section_header_text_view"
+        style="@style/Yapd.Text.SectionHeader"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_centerVertical="true"
+        app:textStyle="semibold"
+        tools:text="Entrepreneurship" />
+
+    <com.yapd.alexander.yapd.client.util.widget.custom_text_view.CustomTextView
+        android:id="@+id/view_section_header_view_all_text_view"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_centerVertical="true"
+        android:gravity="center_vertical"
+        android:text="View All"
+        android:textColor="@color/colorPrimary"
+        app:textStyle="semibold" />
+</RelativeLayout>

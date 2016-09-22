@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:fitsSystemWindows="true"
-    tools:context=".home.home.HomeActivity">
+    tools:context=".client.home.home.HomeActivity">
 
     <android.support.design.widget.AppBarLayout
         android:id="@+id/activity_home_appbar_layout"
@@ -43,14 +43,13 @@
                     android:layout_height="match_parent"
                     android:alpha="0.5"
                     android:background="@color/gray5" />
-
             </RelativeLayout>
 
             <android.support.v7.widget.Toolbar
                 android:id="@+id/activity_home_toolbar"
                 android:layout_width="match_parent"
                 android:layout_height="76dp"
-                android:paddingTop="20dp"
+                android:paddingTop="10dp"
                 android:gravity="top"
                 android:minHeight="?attr/actionBarSize"
                 app:layout_collapseMode="pin"
@@ -58,7 +57,7 @@
         </android.support.design.widget.CollapsingToolbarLayout>
 
 
-        <com.yapd.alexander.yapd.util.widget.sliding_tabs.SlidingTabLayout
+        <com.yapd.alexander.yapd.client.util.widget.sliding_tabs.SlidingTabLayout
             android:id="@+id/activity_home_sliding_tab_layout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
