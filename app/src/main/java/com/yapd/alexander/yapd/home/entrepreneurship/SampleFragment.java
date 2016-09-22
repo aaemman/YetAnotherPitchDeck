@@ -13,7 +13,7 @@ import com.yapd.alexander.yapd.util.view.common.BaseFragment;
 /**
  * Created by alexander on 9/21/16.
  */
-public class EntrepreneurshipFragment extends BaseFragment {
+public class SampleFragment extends BaseFragment {
     public static final int LAYOUT = R.layout.fragment_entrepreneurship;
     private View contentView;
 
