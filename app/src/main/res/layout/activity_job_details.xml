@@ -13,7 +13,7 @@
         <ImageView
             android:id="@+id/view_three_item_featured_section_item_first"
             android:layout_width="match_parent"
-            android:layout_height="128dp"
+            android:layout_height="256dp"
             android:scaleType="centerCrop"
             android:transitionName="job_details_logo" />
 

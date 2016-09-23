@@ -54,6 +54,20 @@ public class Job implements Parcelable {
         return description;
     }
 
+    public String getDuration() {
+        StringBuilder durationStringBuilder = new StringBuilder();
+        if (!startDate.equals("") && !startDate.equals(null)) {
+            durationStringBuilder.append(startDate);
+            durationStringBuilder.append(" - ");
+        }
+
+        if (!endDate.equals("") && !endDate.equals(null)) {
+            durationStringBuilder.append(endDate);
+        }
+
+        return durationStringBuilder.toString();
+    }
+
     public void setDescription(String description) {
         this.description = description;
     }

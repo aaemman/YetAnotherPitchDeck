@@ -50,6 +50,15 @@ public class JobDetailsPresenter implements Presenter<JobDetailsView> {
     public void loadContentForJob(Job job) {
         this.job = job;
         getView().setHeaderImageViewBackgroundUrl(job.getCompany().getLogoUrl());
+        getView().setCompanyName(job.getCompany().getName());
+        getView().setCompanyDescription(job.getCompany().getDescription());
+        getView().setCompanyLocation(job.getCompany().getLocation());
+        getView().setJobTitle(job.getTitle());
+        getView().setJobDuration(job.getDuration());
+        getView().setJobDescription(job.getDescription());
+    }
 
+    public void onCompanyDescriptionClicked() {
+        getView().expandCompanyDescription();
     }
 }

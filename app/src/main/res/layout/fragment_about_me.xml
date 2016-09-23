@@ -11,7 +11,7 @@
         android:orientation="vertical">
 
         <com.yapd.alexander.yapd.client.util.widget.custom_text_view.CustomTextView
-            style="@style/Yapd.Text.SubTitle"
+            style="@style/Yapd.Text.SectionHeader"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="left"

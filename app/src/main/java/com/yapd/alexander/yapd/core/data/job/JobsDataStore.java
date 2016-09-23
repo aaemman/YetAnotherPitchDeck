@@ -39,7 +39,7 @@ public class JobsDataStore implements JobsDataSource {
     private Company createSkillshareCompany() {
         Company skillshare = new Company();
         skillshare.setName("Skillshare");
-        skillshare.setDescription("Skillshare is a learning community for creators. Anyone can take online classes, watch video lessons, create projects, and even teach a class themselves. With Skillshare you can explore thousands of classes in design, photography, business, and more. Skillshare's mission is to provide the world with access to high-quality learning. We believe that everyone is creative, and that giving people tools to harness their creative power has the potential to change lives for the better. Not creativity defined as an artist but creativity defined as a mindset, as a mental toolkit, as a set of building blocks, as a way of solving problems, and as a means to live a more interesting life.");
+        skillshare.setDescription("Skillshare is a learning community for creators. Skillshare's mission is to provide the world with access to high-quality learning. Anyone can take online classes, watch video lessons, create projects, and even teach a class themselves. We believe that everyone is creative, and that giving people tools to harness their creative power has the potential to change lives for the better. Not creativity defined as an artist but creativity defined as a mindset, as a mental toolkit, as a set of building blocks, as a way of solving problems, and as a means to live a more interesting life.");
         skillshare.setLocation("210 Elizabeth Street, New York, NY, USA 10012");
         skillshare.setWebsiteUrl("www.skillshare.com");
         skillshare.setLogoUrl("https://pbs.twimg.com/profile_images/1474879083/twitter_400x400.png");
@@ -96,7 +96,7 @@ public class JobsDataStore implements JobsDataSource {
     private Company createKwilt() {
         Company kwilt = new Company();
         kwilt.setName("Kwilt");
-        kwilt.setDescription("Kwilt is your photo gallery on steroids! Easily the only app you’ll ever need for photo organization, sharing and editing. Kwilt gives you easy access to all of your photos on teh web, no matter where you saved the. Kilt gives you total control over yout photos by bringing together, all the memories that matter to you the most, whenever you need them.");
+        kwilt.setDescription("Kwilt is your photo gallery on steroids! Easily the only app you’ll ever need for photo organization, sharing and editing. Kwilt gives you easy access to all of your photos on the web, no matter where you saved them. Kilt gives you total control over yout photos by bringing together, all the memories that matter to you the most, whenever you need them.");
         kwilt.setLocation("283 Dalhousie St, Ottawa, ON K1N 7E5, Canada");
         kwilt.setWebsiteUrl("http://www.kwiltapp.com");
         kwilt.setLogoUrl("https://media.licdn.com/mpr/mpr/shrink_200_200/AAEAAQAAAAAAAAjKAAAAJDYzZWUxYzg1LWI0ZDEtNGVlNS04ZWMwLWE4ZGYyODQ0OGE3Mw.png");
