@@ -2,12 +2,15 @@ package com.yapd.alexander.yapd.client.home.experience;
 
 import android.os.Bundle;
 import android.support.annotation.Nullable;
+import android.support.v4.app.ActivityOptionsCompat;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.ViewParent;
 
 import com.yapd.alexander.yapd.R;
+import com.yapd.alexander.yapd.client.job.JobDetailsActivity;
+import com.yapd.alexander.yapd.client.util.code.SDKVersion;
 import com.yapd.alexander.yapd.client.util.view.common.BaseFragment;
 import com.yapd.alexander.yapd.client.util.widget.featured_section.FeaturedJobsSection;
 import com.yapd.alexander.yapd.core.model.Job;
@@ -22,6 +25,7 @@ public class ExperienceFragment extends BaseFragment implements ExperienceView {
     private View contentView;
     private ViewBinder viewBinder;
     private ExperiencePresenter presenter = new ExperiencePresenter();
+    private View lastClickedJobImageView;
 
     public static ExperienceFragment getInstance() {
         return new ExperienceFragment();
@@ -48,7 +52,10 @@ public class ExperienceFragment extends BaseFragment implements ExperienceView {
     }
 
     private void setupCareerPathSection() {
-        viewBinder.getJobsItemFeaturedSection().setOnItemClickListener(job -> presenter.OnJobClicked(job));
+        viewBinder.getJobsItemFeaturedSection().setOnItemClickListener((job, view) -> {
+            lastClickedJobImageView = view;
+            presenter.OnJobClicked(job);
+        });
     }
 
     private void initializeContentView(ViewGroup container) {
@@ -57,7 +64,12 @@ public class ExperienceFragment extends BaseFragment implements ExperienceView {
 
     @Override
     public void openJobPage(Job job) {
-        // TODO: 9/22/16
+        if (SDKVersion.isJellyBeanAndUp()) {
+            ActivityOptionsCompat options = ActivityOptionsCompat.makeSceneTransitionAnimation(getActivity(), lastClickedJobImageView, "job_details_logo");
+            getActivity().startActivity(JobDetailsActivity.getLaunchIntent(getContext(), job), options.toBundle());
+        } else {
+            getActivity().startActivity(JobDetailsActivity.getLaunchIntent(getContext(), job));
+        }
     }
 
     @Override

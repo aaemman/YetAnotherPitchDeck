@@ -46,7 +46,9 @@ public class CustomTextView extends TextView {
         setTextColor(getTextColors().withAlpha(alpha));
         setHintTextColor(getHintTextColors().withAlpha(alpha));
         setLinkTextColor(getLinkTextColors().withAlpha(alpha));
-        getBackground().setAlpha(alpha);
+        if(getBackground() != null) {
+            getBackground().setAlpha(alpha);
+        }
         return true;
     }
 

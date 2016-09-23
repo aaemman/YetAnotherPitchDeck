@@ -9,6 +9,7 @@
         android:id="@+id/view_three_item_featured_section_item_first"
         android:layout_width="0dp"
         android:layout_height="60dp"
+        android:transitionName="job_details_logo"
         android:layout_marginRight="8dp"
         android:layout_weight="1"
         android:src="@color/gray25" />
@@ -18,6 +19,7 @@
         android:layout_width="0dp"
         android:layout_height="60dp"
         android:layout_marginLeft="8dp"
+        android:transitionName="job_details_logo"
         android:layout_marginRight="8dp"
         android:layout_weight="1"
         android:src="@color/gray25" />
@@ -28,6 +30,7 @@
         android:layout_height="60dp"
         android:layout_marginLeft="8dp"
         android:layout_marginRight="8dp"
+        android:transitionName="job_details_logo"
         android:layout_weight="1"
         android:src="@color/gray25" />
 
@@ -37,6 +40,7 @@
         android:layout_height="60dp"
         android:layout_marginLeft="8dp"
         android:layout_marginRight="8dp"
+        android:transitionName="job_details_logo"
         android:layout_weight="1"
         android:src="@color/gray25" />
 
@@ -46,5 +50,6 @@
         android:layout_height="60dp"
         android:layout_marginLeft="8dp"
         android:layout_weight="1"
+        android:transitionName="job_details_logo"
         android:src="@color/gray25" />
 </LinearLayout>

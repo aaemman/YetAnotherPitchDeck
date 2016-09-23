@@ -1,17 +1,25 @@
 package com.yapd.alexander.yapd.core.model;
 
+import android.os.Parcel;
+import android.os.Parcelable;
+
+import java.util.ArrayList;
 import java.util.List;
 
 /**
  * Created by alexander on 9/22/16.
  */
-public class Company {
+public class Company implements Parcelable {
     private String name;
     private String description;
     private String location;
     private String logoUrl;
     private String websiteUrl;
     private List<String> featuredImageUrls;
+
+    public Company() {
+        //
+    }
 
     public String getName() {
         return name;
@@ -103,4 +111,51 @@ public class Company {
                 ", featuredImageUrls=" + featuredImageUrls +
                 '}';
     }
+
+    protected Company(Parcel in) {
+        name = in.readString();
+        description = in.readString();
+        location = in.readString();
+        logoUrl = in.readString();
+        websiteUrl = in.readString();
+        if (in.readByte() == 0x01) {
+            featuredImageUrls = new ArrayList<String>();
+            in.readList(featuredImageUrls, String.class.getClassLoader());
+        } else {
+            featuredImageUrls = null;
+        }
+    }
+
+    @Override
+    public int describeContents() {
+        return 0;
+    }
+
+    @Override
+    public void writeToParcel(Parcel dest, int flags) {
+        dest.writeString(name);
+        dest.writeString(description);
+        dest.writeString(location);
+        dest.writeString(logoUrl);
+        dest.writeString(websiteUrl);
+        if (featuredImageUrls == null) {
+            dest.writeByte((byte) (0x00));
+        } else {
+            dest.writeByte((byte) (0x01));
+            dest.writeList(featuredImageUrls);
+        }
+    }
+
+    @SuppressWarnings("unused")
+    public static final Parcelable.Creator<Company> CREATOR = new Parcelable.Creator<Company>() {
+        @Override
+        public Company createFromParcel(Parcel in) {
+            return new Company(in);
+        }
+
+        @Override
+        public Company[] newArray(int size) {
+            return new Company[size];
+        }
+    };
 }

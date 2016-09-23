@@ -9,7 +9,7 @@ import java.util.List;
 import rx.Observable;
 
 /**
- * Created by alexander on 9/22/16.
+ * Created by alexander on 9/22/16.s
  */
 public class JobsDataStore implements JobsDataSource {
     @Override
@@ -32,7 +32,7 @@ public class JobsDataStore implements JobsDataSource {
         job.setCompany(createSkillshareCompany());
         job.setStartDate("2015");
         job.setEndDate("Current");
-        job.setJobTitle("Software Engineer - Android");
+        job.setTitle("Software Engineer - Android");
         return job;
     }
 
@@ -51,7 +51,7 @@ public class JobsDataStore implements JobsDataSource {
         job.setCompany(createVTS());
         job.setStartDate("2014");
         job.setEndDate("2015");
-        job.setJobTitle("Software Engineer - Android");
+        job.setTitle("Software Engineer - Android");
         return job;
     }
 
@@ -70,7 +70,7 @@ public class JobsDataStore implements JobsDataSource {
         job.setCompany(createSynacor());
         job.setStartDate("2014");
         job.setEndDate("2014");
-        job.setJobTitle("Software Engineer - Android");
+        job.setTitle("Software Engineer - Android");
         return job;
     }
 
@@ -89,7 +89,7 @@ public class JobsDataStore implements JobsDataSource {
         job.setCompany(createKwilt());
         job.setStartDate("2013");
         job.setEndDate("2014");
-        job.setJobTitle("Junior Mobile Application Developer");
+        job.setTitle("Junior Mobile Application Developer");
         return job;
     }
 
@@ -108,7 +108,7 @@ public class JobsDataStore implements JobsDataSource {
         job.setCompany(createMBS());
         job.setStartDate("2012");
         job.setEndDate("2012");
-        job.setJobTitle("Junior Mobile Application Developer");
+        job.setTitle("Junior Mobile Application Developer");
         return job;
     }
 

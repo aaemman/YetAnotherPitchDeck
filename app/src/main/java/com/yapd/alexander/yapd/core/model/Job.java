@@ -1,13 +1,22 @@
 package com.yapd.alexander.yapd.core.model;
 
+import android.os.Parcel;
+import android.os.Parcelable;
+
 /**
  * Created by alexander on 9/22/16.
  */
-public class Job {
+
+public class Job implements Parcelable {
     private String startDate;
     private String endDate;
-    private String jobTitle;
+    private String title;
     private Company company;
+    private String description;
+
+    public Job() {
+        //
+    }
 
     public String getStartDate() {
         return startDate;
@@ -25,12 +34,12 @@ public class Job {
         this.endDate = endDate;
     }
 
-    public String getJobTitle() {
-        return jobTitle;
+    public String getTitle() {
+        return title;
     }
 
-    public void setJobTitle(String jobTitle) {
-        this.jobTitle = jobTitle;
+    public void setTitle(String title) {
+        this.title = title;
     }
 
     public Company getCompany() {
@@ -39,6 +48,14 @@ public class Job {
 
     public void setCompany(Company company) {
         this.company = company;
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
     }
 
     @Override
@@ -51,8 +68,9 @@ public class Job {
         if (startDate != null ? !startDate.equals(job.startDate) : job.startDate != null)
             return false;
         if (endDate != null ? !endDate.equals(job.endDate) : job.endDate != null) return false;
-        if (jobTitle != null ? !jobTitle.equals(job.jobTitle) : job.jobTitle != null) return false;
-        return company != null ? company.equals(job.company) : job.company == null;
+        if (title != null ? !title.equals(job.title) : job.title != null) return false;
+        if (company != null ? !company.equals(job.company) : job.company != null) return false;
+        return description != null ? description.equals(job.description) : job.description == null;
 
     }
 
@@ -60,8 +78,9 @@ public class Job {
     public int hashCode() {
         int result = startDate != null ? startDate.hashCode() : 0;
         result = 31 * result + (endDate != null ? endDate.hashCode() : 0);
-        result = 31 * result + (jobTitle != null ? jobTitle.hashCode() : 0);
+        result = 31 * result + (title != null ? title.hashCode() : 0);
         result = 31 * result + (company != null ? company.hashCode() : 0);
+        result = 31 * result + (description != null ? description.hashCode() : 0);
         return result;
     }
 
@@ -70,8 +89,44 @@ public class Job {
         return "Job{" +
                 "startDate='" + startDate + '\'' +
                 ", endDate='" + endDate + '\'' +
-                ", jobTitle='" + jobTitle + '\'' +
+                ", title='" + title + '\'' +
                 ", company=" + company +
+                ", description='" + description + '\'' +
                 '}';
     }
+
+    protected Job(Parcel in) {
+        startDate = in.readString();
+        endDate = in.readString();
+        title = in.readString();
+        company = (Company) in.readValue(Company.class.getClassLoader());
+        description = in.readString();
+    }
+
+    @Override
+    public int describeContents() {
+        return 0;
+    }
+
+    @Override
+    public void writeToParcel(Parcel dest, int flags) {
+        dest.writeString(startDate);
+        dest.writeString(endDate);
+        dest.writeString(title);
+        dest.writeValue(company);
+        dest.writeString(description);
+    }
+
+    @SuppressWarnings("unused")
+    public static final Parcelable.Creator<Job> CREATOR = new Parcelable.Creator<Job>() {
+        @Override
+        public Job createFromParcel(Parcel in) {
+            return new Job(in);
+        }
+
+        @Override
+        public Job[] newArray(int size) {
+            return new Job[size];
+        }
+    };
 }

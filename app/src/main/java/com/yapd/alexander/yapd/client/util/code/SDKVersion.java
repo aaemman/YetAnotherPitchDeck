@@ -10,4 +10,8 @@ public class SDKVersion {
     public static boolean isLollipopAndUp() {
         return Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP;
     }
+
+    public static boolean isJellyBeanAndUp() {
+        return Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN;
+    }
 }

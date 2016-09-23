@@ -3,13 +3,11 @@ package com.yapd.alexander.yapd.client.util.widget.featured_section;
 import android.content.Context;
 import android.util.AttributeSet;
 import android.view.LayoutInflater;
-import android.view.MotionEvent;
 import android.view.View;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
 
 import com.yapd.alexander.yapd.R;
-import com.yapd.alexander.yapd.client.util.code.common.Callback;
 import com.yapd.alexander.yapd.client.util.view.on_touch_listener.BounceAnimationOnTouchListener;
 
 import java.util.List;
@@ -20,7 +18,7 @@ import java.util.List;
 public abstract class CircularFeaturedItemsSection<T> extends FrameLayout {
     public static final int LAYOUT = R.layout.view_circular_featured_items_section;
     private ViewBinder viewBinder;
-    private Callback<T> onItemClickListener;
+    private OnItemClickListener<T> onItemClickListener;
     private List<T> items;
 
     public CircularFeaturedItemsSection(Context context) {
@@ -51,7 +49,7 @@ public abstract class CircularFeaturedItemsSection<T> extends FrameLayout {
         if (viewBinder != null) {
             itemView.setOnClickListener(clickedView -> {
                 if (this.items != null && items.size() > minNumberOfItems) {
-                    onItemClickListener.onCallback(items.get(minNumberOfItems));
+                    onItemClickListener.onItemClicked(items.get(minNumberOfItems), clickedView);
                 }
             });
 
@@ -59,7 +57,7 @@ public abstract class CircularFeaturedItemsSection<T> extends FrameLayout {
         }
     }
 
-    public void setOnItemClickListener(final Callback<T> onItemClickListener) {
+    public void setOnItemClickListener(final OnItemClickListener<T> onItemClickListener) {
         this.onItemClickListener = onItemClickListener;
     }
 
@@ -103,5 +101,9 @@ public abstract class CircularFeaturedItemsSection<T> extends FrameLayout {
         public ImageView getFifthFeaturedItem() {
             return fifthFeaturedItem = getView(fifthFeaturedItem, R.id.view_three_item_featured_section_item_fifth);
         }
+    }
+
+    public interface OnItemClickListener<T> {
+        void onItemClicked(T t, View view);
     }
 }
