@@ -33,6 +33,12 @@
             android:focusable="true"
             tools:text="Skillshare's mission is to provide the world with access to high-quality learning. " />
 
+        <HorizontalScrollView
+            android:id="@+id/activity_job_details_featured_images_horizontal_scroll_view"
+            android:layout_width="match_parent"
+            android:layout_height="128dp"
+            android:layout_marginTop="@dimen/activity_vertical_margin" />
+
 
         <com.yapd.alexander.yapd.client.util.widget.custom_text_view.CustomTextView
             android:id="@+id/activity_job_details_my_position_section_title"
@@ -49,7 +55,7 @@
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="8dp">
+            android:layout_marginBottom="@dimen/activity_vertical_margin">
 
             <com.yapd.alexander.yapd.client.util.widget.custom_text_view.CustomTextView
                 android:id="@+id/activity_job_details_job_title"
@@ -78,6 +84,7 @@
             style="@style/Yapd.Text"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/activity_vertical_margin"
             android:background="@drawable/transparent_to_gray_25_background"
             android:clickable="true"
             android:focusable="true"

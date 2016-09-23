@@ -6,6 +6,7 @@ import android.graphics.Bitmap;
 import android.os.Bundle;
 import android.support.v7.graphics.Palette;
 import android.view.View;
+import android.widget.HorizontalScrollView;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -19,6 +20,7 @@ import com.yapd.alexander.yapd.client.util.widget.expandable_text_view.Expandabl
 import com.yapd.alexander.yapd.core.model.Job;
 
 import java.net.MalformedURLException;
+import java.util.List;
 
 public class JobDetailsActivity extends BaseActivity implements JobDetailsView {
     public static final String JOB_EXTRA_KEY = "JOB_EXTRA_KEY";
@@ -42,12 +44,18 @@ public class JobDetailsActivity extends BaseActivity implements JobDetailsView {
         presenter.attachToView(this);
 
         setupCompanyDesription();
+        setupJobDesription();
         this.job = getIntent().getParcelableExtra(JOB_EXTRA_KEY);
         presenter.loadContentForJob(job);
     }
 
     private void setupCompanyDesription() {
         viewBinder.getCompanyDescription().setOnClickListener(view -> presenter.onCompanyDescriptionClicked());
+    }
+
+    private void setupJobDesription() {
+        viewBinder.getJobDescriptionTextView().setOnClickListener(view -> presenter.onJobDescriptionClicked());
+        ;
     }
 
     @Override
@@ -76,6 +84,15 @@ public class JobDetailsActivity extends BaseActivity implements JobDetailsView {
     }
 
     @Override
+    public void setFeaturedImageUrls(List<String> imageUrls) {
+        for (String url : imageUrls) {
+            ImageView imageView = new ImageView(this);
+            viewBinder.getFeaturedImagesHorizontalScrollView().addView(imageView);
+            Glide.with(this).load(url).crossFade().into(imageView);
+        }
+    }
+
+    @Override
     public void setJobTitle(String title) {
         viewBinder.getJobTitleTextView().setText(title);
     }
@@ -88,6 +105,11 @@ public class JobDetailsActivity extends BaseActivity implements JobDetailsView {
     @Override
     public void setJobDescription(String description) {
         viewBinder.getJobDescriptionTextView().setText(description);
+    }
+
+    @Override
+    public void expandJobDescription() {
+        viewBinder.getJobDescriptionTextView().setExpanded(true);
     }
 
     @Override
@@ -109,10 +131,11 @@ public class JobDetailsActivity extends BaseActivity implements JobDetailsView {
         private ImageView headerImageView;
         private TextView companyTitleTextView;
         private ExpandableTextView companyDescription;
-        private ImageView mapImageView;
+        private HorizontalScrollView featuredImagesHorizontalScrollView;
         private TextView jobTitleTextView;
         private TextView jobDurationTextView;
-        private TextView jobDescriptionTextView;
+        private ExpandableTextView jobDescriptionTextView;
+        private ImageView mapImageView;
 
         public ViewBinder(View view) {
             super(view);
@@ -130,8 +153,8 @@ public class JobDetailsActivity extends BaseActivity implements JobDetailsView {
             return companyDescription = getView(companyDescription, R.id.activity_job_details_company_description);
         }
 
-        public ImageView getMapImageView() {
-            return mapImageView = getView(mapImageView, R.id.activity_job_details_company_location_map_image_view);
+        public HorizontalScrollView getFeaturedImagesHorizontalScrollView() {
+            return featuredImagesHorizontalScrollView = getView(featuredImagesHorizontalScrollView, R.id.activity_job_details_featured_images_horizontal_scroll_view);
         }
 
         public TextView getJobTitleTextView() {
@@ -142,8 +165,12 @@ public class JobDetailsActivity extends BaseActivity implements JobDetailsView {
             return jobDurationTextView = getView(jobDurationTextView, R.id.activity_job_details_job_duration);
         }
 
-        public TextView getJobDescriptionTextView() {
+        public ExpandableTextView getJobDescriptionTextView() {
             return jobDescriptionTextView = getView(jobDescriptionTextView, R.id.activity_job_details_job_description);
+        }
+
+        public ImageView getMapImageView() {
+            return mapImageView = getView(mapImageView, R.id.activity_job_details_company_location_map_image_view);
         }
     }
 }

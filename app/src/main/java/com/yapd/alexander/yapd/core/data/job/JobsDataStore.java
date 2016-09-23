@@ -30,6 +30,10 @@ public class JobsDataStore implements JobsDataSource {
     private Job createSkillshareJob() {
         Job job = new Job();
         job.setCompany(createSkillshareCompany());
+        job.setDescription("- Lead development of the Skillshare Android application using Test Driven Development.\n\n" +
+                "- Worked with the Director of Mobile and representatives from google to get the Skillshare Android app featured in the Google Play Store twice in 2 months, resulting in an additional 15,000 downloads\n\n" +
+                "- Designed and developed Skillshare’s internal Java SDK\n\n" +
+                "- Aided in the hiring and product management processes of the Android development team");
         job.setStartDate("2015");
         job.setEndDate("Current");
         job.setTitle("Software Engineer - Android");

@@ -56,9 +56,14 @@ public class JobDetailsPresenter implements Presenter<JobDetailsView> {
         getView().setJobTitle(job.getTitle());
         getView().setJobDuration(job.getDuration());
         getView().setJobDescription(job.getDescription());
+        
     }
 
     public void onCompanyDescriptionClicked() {
         getView().expandCompanyDescription();
+    }
+
+    public void onJobDescriptionClicked() {
+        getView().expandJobDescription();
     }
 }

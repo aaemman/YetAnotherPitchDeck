@@ -2,9 +2,7 @@ package com.yapd.alexander.yapd.client.util.widget.expandable_text_view;
 
 import android.content.Context;
 import android.graphics.Typeface;
-import android.text.Html;
 import android.text.SpannableStringBuilder;
-import android.text.Spanned;
 import android.text.TextPaint;
 import android.text.method.LinkMovementMethod;
 import android.text.style.ClickableSpan;
@@ -81,10 +79,10 @@ public class ExpandableTextView extends CustomTextView {
     }
 
     protected SpannableStringBuilder addExpandTextToText(String text, String expandText) {
-        return addClickablePartTextViewResizable(Html.fromHtml(text), expandText);
+        return addClickablePartTextViewResizable(text, expandText);
     }
 
-    private SpannableStringBuilder addClickablePartTextViewResizable(final Spanned content, final String expandText) {
+    private SpannableStringBuilder addClickablePartTextViewResizable(final String content, final String expandText) {
         SpannableStringBuilder spannableStringBuilder = new SpannableStringBuilder(content);
 
         if (shouldCreateClickableSpan(content, expandText)) {
@@ -93,11 +91,11 @@ public class ExpandableTextView extends CustomTextView {
         return spannableStringBuilder;
     }
 
-    private boolean shouldCreateClickableSpan(Spanned content, String expandText) {
+    private boolean shouldCreateClickableSpan(String content, String expandText) {
         return content.toString().contains(getContext().getString(ELIPSES)) && SpannedStringHasExpandTextAtTheEndOfIt(content, expandText);
     }
 
-    private boolean SpannedStringHasExpandTextAtTheEndOfIt(Spanned spannedString, String expandText) {
+    private boolean SpannedStringHasExpandTextAtTheEndOfIt(String spannedString, String expandText) {
         return spannedString.subSequence(spannedString.length() - expandText.length(), spannedString.length()).toString().equals(expandText);
     }
 
