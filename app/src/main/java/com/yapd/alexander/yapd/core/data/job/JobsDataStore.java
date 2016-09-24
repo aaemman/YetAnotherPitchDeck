@@ -43,7 +43,7 @@ public class JobsDataStore implements JobsDataSource {
     private Company createSkillshareCompany() {
         Company skillshare = new Company();
         skillshare.setName("Skillshare");
-        skillshare.setDescription("Skillshare is a learning community for creators. Skillshare's mission is to provide the world with access to high-quality learning. Anyone can take online classes, watch video lessons, create projects, and even teach a class themselves. We believe that everyone is creative, and that giving people tools to harness their creative power has the potential to change lives for the better. Not creativity defined as an artist but creativity defined as a mindset, as a mental toolkit, as a set of building blocks, as a way of solving problems, and as a means to live a more interesting life.");
+        skillshare.setDescription("Skillshare is a learning community for creators. Skillshare's mission is to provide the world with access to high-quality learning. Anyone can take online classes, watch video lessons, create projects, and even teach a class themselves.");
         skillshare.setLocation("210 Elizabeth Street, New York, NY, USA 10012");
         skillshare.setWebsiteUrl("www.skillshare.com");
         skillshare.setLogoUrl("https://pbs.twimg.com/profile_images/1474879083/twitter_400x400.png");
@@ -62,7 +62,7 @@ public class JobsDataStore implements JobsDataSource {
     private Company createVTS() {
         Company vts = new Company();
         vts.setName("VTS");
-        vts.setDescription("VTS is a commercial leasing and asset management platform for landlords and brokerages. Using VTS, landlords can track leasing trends across their buildings, track negotiations, and monitor their marketing performance, among other things. Similarly, brokers can use the company’s tools to manage their own leasing pipelines, while tenant reps can manage their workflow on the platform, too. VTS’s services are currently being used to manage 2.7+ billion square feet of real estate and is being used by over 80 percent of the top 10 global investment managers");
+        vts.setDescription("VTS is a commercial leasing and asset management platform for landlords and brokerages currently being used to manage 2.7+ billion square feet of real estate and is being used by over 80 percent of the top 10 global investment managers. Using VTS, landlords can track leasing trends across their buildings, track negotiations, and monitor their marketing performance, among other things. Similarly, brokers can use the company’s tools to manage their own leasing pipelines, while tenant reps can manage their workflow on the platform, too.");
         vts.setLocation("142 W 36th Street, New York, NY, USA 10018");
         vts.setWebsiteUrl("www.vts.com");
         vts.setLogoUrl("https://lh3.googleusercontent.com/CEbaXbbLLW4KK_xMwCY07Ph3K3IumnYdnuw_FSXrvG3w2AJdlwSjkQaS0gqw-Lc=w300-rw");
@@ -81,7 +81,7 @@ public class JobsDataStore implements JobsDataSource {
     private Company createSynacor() {
         Company synacor = new Company();
         synacor.setName("Synacor");
-        synacor.setDescription("Synacor is the creator of a proprietary Android Customization Development Platform, an award-winning mobile product development company focused on merging design and technology to create transformative user experiences on a variety of connected devices. Synacor’s technology has the ability to make any device a smart device.");
+        synacor.setDescription("Synacor is the creator of a proprietary Android Customization Development Platform, an award-winning mobile product development company focused on merging design and technology to create transformative user experiences on a variety of connected devices.");
         synacor.setLocation("5M3, 55 Murray St #500, Ottawa, ON K1N, Canada");
         synacor.setWebsiteUrl("www.synacor.com");
         synacor.setLogoUrl("https://pbs.twimg.com/profile_images/1233125274/tek11_logo.jpg");
@@ -100,7 +100,7 @@ public class JobsDataStore implements JobsDataSource {
     private Company createKwilt() {
         Company kwilt = new Company();
         kwilt.setName("Kwilt");
-        kwilt.setDescription("Kwilt is your photo gallery on steroids! Easily the only app you’ll ever need for photo organization, sharing and editing. Kwilt gives you easy access to all of your photos on the web, no matter where you saved them. Kilt gives you total control over yout photos by bringing together, all the memories that matter to you the most, whenever you need them.");
+        kwilt.setDescription("Kwilt is a photo management application that gives you easy access to all of your photos on the web, no matter where you saved them. Kilt gives you total control over yout photos by bringing together, all the memories that matter to you the most, whenever you need them.");
         kwilt.setLocation("283 Dalhousie St, Ottawa, ON K1N 7E5, Canada");
         kwilt.setWebsiteUrl("http://www.kwiltapp.com");
         kwilt.setLogoUrl("https://media.licdn.com/mpr/mpr/shrink_200_200/AAEAAQAAAAAAAAjKAAAAJDYzZWUxYzg1LWI0ZDEtNGVlNS04ZWMwLWE4ZGYyODQ0OGE3Mw.png");
