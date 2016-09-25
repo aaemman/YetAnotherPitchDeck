@@ -1,4 +1,4 @@
-package com.yapd.alexander.yapd.client.job;
+package com.yapd.alexander.yapd.client.job_details;
 
 import java.util.List;
 
@@ -11,6 +11,8 @@ public interface JobDetailsView {
     void setCompanyName(String name);
 
     void setCompanyDescription(String description);
+
+    void setCompanyTags(List<String> tags);
 
     void setCompanyLocationMapUrl(String location);
 

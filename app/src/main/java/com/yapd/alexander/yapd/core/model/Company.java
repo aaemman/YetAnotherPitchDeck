@@ -16,6 +16,7 @@ public class Company implements Parcelable {
     private String logoUrl;
     private String websiteUrl;
     private List<String> featuredImageUrls = new ArrayList<>();
+    private List<String> tags = new ArrayList<>();
 
     public Company() {
         //
@@ -69,6 +70,14 @@ public class Company implements Parcelable {
         this.featuredImageUrls = featuredImageUrls;
     }
 
+    public List<String> getTags() {
+        return tags;
+    }
+
+    public void setTags(List<String> tags) {
+        this.tags = tags;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
@@ -85,7 +94,9 @@ public class Company implements Parcelable {
             return false;
         if (websiteUrl != null ? !websiteUrl.equals(company.websiteUrl) : company.websiteUrl != null)
             return false;
-        return featuredImageUrls != null ? featuredImageUrls.equals(company.featuredImageUrls) : company.featuredImageUrls == null;
+        if (featuredImageUrls != null ? !featuredImageUrls.equals(company.featuredImageUrls) : company.featuredImageUrls != null)
+            return false;
+        return tags != null ? tags.equals(company.tags) : company.tags == null;
 
     }
 
@@ -97,6 +108,7 @@ public class Company implements Parcelable {
         result = 31 * result + (logoUrl != null ? logoUrl.hashCode() : 0);
         result = 31 * result + (websiteUrl != null ? websiteUrl.hashCode() : 0);
         result = 31 * result + (featuredImageUrls != null ? featuredImageUrls.hashCode() : 0);
+        result = 31 * result + (tags != null ? tags.hashCode() : 0);
         return result;
     }
 
@@ -109,6 +121,7 @@ public class Company implements Parcelable {
                 ", logoUrl='" + logoUrl + '\'' +
                 ", websiteUrl='" + websiteUrl + '\'' +
                 ", featuredImageUrls=" + featuredImageUrls +
+                ", tags=" + tags +
                 '}';
     }
 
@@ -123,6 +136,12 @@ public class Company implements Parcelable {
             in.readList(featuredImageUrls, String.class.getClassLoader());
         } else {
             featuredImageUrls = null;
+        }
+        if (in.readByte() == 0x01) {
+            tags = new ArrayList<String>();
+            in.readList(tags, String.class.getClassLoader());
+        } else {
+            tags = null;
         }
     }
 
@@ -143,6 +162,12 @@ public class Company implements Parcelable {
         } else {
             dest.writeByte((byte) (0x01));
             dest.writeList(featuredImageUrls);
+        }
+        if (tags == null) {
+            dest.writeByte((byte) (0x00));
+        } else {
+            dest.writeByte((byte) (0x01));
+            dest.writeList(tags);
         }
     }
 

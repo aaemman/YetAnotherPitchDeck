@@ -1,4 +1,4 @@
-package com.yapd.alexander.yapd.client.job;
+package com.yapd.alexander.yapd.client.job_details;
 
 import android.content.Context;
 import android.content.Intent;
@@ -21,6 +21,8 @@ import com.yapd.alexander.yapd.client.util.view.common.BaseActivity;
 import com.yapd.alexander.yapd.client.util.view.on_touch_listener.LiftAnimationOnTouchListener;
 import com.yapd.alexander.yapd.client.util.widget.expandable_text_view.ExpandableTextView;
 import com.yapd.alexander.yapd.client.util.widget.flat_button.FlatButton;
+import com.yapd.alexander.yapd.client.util.widget.no_swipe_recycler_view.NoSwipeRecyclerView;
+import com.yapd.alexander.yapd.client.util.widget.no_swipe_recycler_view.TagCloudLayoutManager;
 import com.yapd.alexander.yapd.core.model.Job;
 
 import java.util.List;
@@ -49,6 +51,7 @@ public class JobDetailsActivity extends BaseActivity implements JobDetailsView {
         setupCompanyDesription();
         setupJobDesription();
         setupVisitWebsiteButton();
+        setupCompanyTagCloud();
         this.job = getIntent().getParcelableExtra(JOB_EXTRA_KEY);
         presenter.loadContentForJob(job);
     }
@@ -66,6 +69,10 @@ public class JobDetailsActivity extends BaseActivity implements JobDetailsView {
         viewBinder.getVisitCompanyWebsiteButton().setOnClickListener(view -> presenter.onVisitWebsiteButtonClicked());
     }
 
+    private void setupCompanyTagCloud() {
+        viewBinder.getCompanyTagCloud().setLayoutManager(new TagCloudLayoutManager());
+    }
+
     @Override
     public void setCompanyName(String name) {
         viewBinder.getCompanyTitleTextView().setText(name);
@@ -75,6 +82,11 @@ public class JobDetailsActivity extends BaseActivity implements JobDetailsView {
     @Override
     public void setCompanyDescription(String description) {
         viewBinder.getCompanyDescription().setText(description);
+    }
+
+    @Override
+    public void setCompanyTags(List<String> tags) {
+        viewBinder.getCompanyTagCloud().setAdapter(new CompanyTagCloudAdapter(tags));
     }
 
     @Override
@@ -165,6 +177,7 @@ public class JobDetailsActivity extends BaseActivity implements JobDetailsView {
         private TextView aboutCompanyTitleTextView;
         private TextView jobDurationTextView;
         private ExpandableTextView jobDescriptionTextView;
+        private NoSwipeRecyclerView companyTagCloud;
         private ImageView mapImageView;
         private HorizontalScrollView featuredImagesHorizontalScrollView;
 
@@ -214,6 +227,10 @@ public class JobDetailsActivity extends BaseActivity implements JobDetailsView {
 
         public HorizontalScrollView getFeaturedImagesHorizontalScrollView() {
             return featuredImagesHorizontalScrollView = getView(featuredImagesHorizontalScrollView, R.id.activity_job_details_featured_images_horizintal_scroll_view);
+        }
+
+        public NoSwipeRecyclerView getCompanyTagCloud() {
+            return companyTagCloud = getView(companyTagCloud, R.id.job_details_company_tags_cloud);
         }
     }
 }

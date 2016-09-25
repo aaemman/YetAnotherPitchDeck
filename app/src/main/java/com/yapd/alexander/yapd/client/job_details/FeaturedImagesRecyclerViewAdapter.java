@@ -1,4 +1,4 @@
-package com.yapd.alexander.yapd.client.job;
+package com.yapd.alexander.yapd.client.job_details;
 
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;

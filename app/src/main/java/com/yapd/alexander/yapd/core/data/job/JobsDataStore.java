@@ -44,10 +44,11 @@ public class JobsDataStore implements JobsDataSource {
         Company skillshare = new Company();
         skillshare.setName("Skillshare");
         skillshare.setDescription("Skillshare is a learning community for creators. Skillshare's mission is to provide the world with access to high-quality learning. Anyone can take online classes, watch video lessons, create projects, and even teach a class themselves.");
-        skillshare.setLocation("210 Elizabeth Street, New York, NY, USA 10012");
+        skillshare.setLocation("Manhattan, NY, USA, 10012");
         skillshare.setWebsiteUrl("http://www.skillshare.com");
-        skillshare.setLogoUrl("https://pbs.twimg.com/profile_images/1474879083/twitter_400x400.png");
+        skillshare.setLogoUrl("https://lh3.googleusercontent.com/p4rlGM7m0JB1kg7laBmNv4ajZk_inNkK3reE77_aDFOOtIw_lx0u5YXB4K_2TYkNxflI=w512-rw");
         skillshare.setFeaturedImageUrls(createSkillshareFeaturedImageUrlArray());
+        skillshare.setTags(createSkillshareTagsArray());
         return skillshare;
     }
 
@@ -59,6 +60,19 @@ public class JobsDataStore implements JobsDataSource {
         urls.add("https://lh3.googleusercontent.com/KVN0Nmtz0-tJBNiGhZuCPRRAw4jZAe4g0WclJZaMarrUfL_XYDnelVXPxgZtectN6w=h900-rw");
         urls.add("https://lh3.googleusercontent.com/sWc9rEAZJYugr0uoNi-r52EQVDAFTDcn27HrVWYCi5AHl1f9aWqt5cwTb0TsddxzG-E=h900-rw");
         return urls;
+    }
+
+    private List<String> createSkillshareTagsArray() {
+        List<String> tags = new ArrayList<>();
+        tags.add("#MobileFirst");
+        tags.add("#NYCTech");
+        tags.add("#Education");
+        tags.add("#TwoSidedOpenPlatform");
+        tags.add("#NetworkEffects");
+        tags.add("#SubscriptionModel");
+        tags.add("#Startup");
+        tags.add("#FeaturedInThePlayStore");
+        return tags;
     }
 
     private Job createVTSJob() {
@@ -77,10 +91,11 @@ public class JobsDataStore implements JobsDataSource {
         Company vts = new Company();
         vts.setName("VTS");
         vts.setDescription("VTS is a commercial leasing and asset management platform for landlords and brokerages currently being used to manage 2.7+ billion square feet of real estate and is being used by over 80 percent of the top 10 global investment managers.");
-        vts.setLocation("142 W 36th Street, New York, NY, USA 10018");
+        vts.setLocation("Manhattan, USA 10018");
         vts.setWebsiteUrl("http://www.vts.com");
-        vts.setLogoUrl("https://lh3.googleusercontent.com/CEbaXbbLLW4KK_xMwCY07Ph3K3IumnYdnuw_FSXrvG3w2AJdlwSjkQaS0gqw-Lc=w300-rw");
+        vts.setLogoUrl("https://lh3.googleusercontent.com/CEbaXbbLLW4KK_xMwCY07Ph3K3IumnYdnuw_FSXrvG3w2AJdlwSjkQaS0gqw-Lc=w512-rw");
         vts.setFeaturedImageUrls(createVTSFeaturedImageUrlArray());
+        vts.setTags(createVTSTagsArray());
         return vts;
     }
 
@@ -91,6 +106,16 @@ public class JobsDataStore implements JobsDataSource {
         urls.add("https://lh3.googleusercontent.com/ajpD_E2FGPwPZ2nR8cbUUDGKAVAWsMS2oIgMvm8glQzKVz_V3x_NHg1AHsWCp4IZ3Q8=h900-rw");
         urls.add("https://lh3.googleusercontent.com/14GoAqMAX8tlWhaYck9jpJr16NvYvNb7a4TBTAz7JHU739Brp2ZNF9R5qr0IzKE5MT4=h900-rw");
         return urls;
+    }
+
+    private List<String> createVTSTagsArray() {
+        List<String> tags = new ArrayList<>();
+        tags.add("#DataVisualization");
+        tags.add("#BigData");
+        tags.add("#RealEstate");
+        tags.add("#NYCTech");
+        tags.add("#Startup");
+        return tags;
     }
 
     private Job createSynacorJob() {
@@ -107,10 +132,11 @@ public class JobsDataStore implements JobsDataSource {
         Company synacor = new Company();
         synacor.setName("Synacor");
         synacor.setDescription("Synacor is the creator of a proprietary Android Customization Development Platform, an award-winning mobile product development company focused on merging design and technology to create transformative user experiences on a variety of connected devices.");
-        synacor.setLocation("5M3, 55 Murray St #500, Ottawa, ON K1N, Canada");
+        synacor.setLocation("Ottawa, ON, Canada");
         synacor.setWebsiteUrl("http://www.synacor.com");
         synacor.setLogoUrl("https://pbs.twimg.com/profile_images/1233125274/tek11_logo.jpg");
         synacor.setFeaturedImageUrls(createSynacorFeaturedImageUrlArray());
+        synacor.setTags(createSynacorTagsArray());
         return synacor;
     }
 
@@ -121,6 +147,14 @@ public class JobsDataStore implements JobsDataSource {
         urls.add("http://www.teknision.com/wp-content/uploads/tablet_group.png");
         urls.add("http://a9droid.com/wp-content/uploads/2016/02/Chameleon-Launcher.png");
         return urls;
+    }
+
+    private List<String> createSynacorTagsArray() {
+        List<String> tags = new ArrayList<>();
+        tags.add("#AndroidOS");
+        tags.add("#DesignFocused");
+        tags.add("#PublicCompany");
+        return tags;
     }
 
     private Job createKwiltJob() {
@@ -136,11 +170,12 @@ public class JobsDataStore implements JobsDataSource {
     private Company createKwilt() {
         Company kwilt = new Company();
         kwilt.setName("Kwilt");
-        kwilt.setDescription("Kwilt is a photo management application that gives you easy access to all of your photos on the web, no matter where you saved them. Kilt gives you total control over yout photos by bringing together, all the memories that matter to you the most, whenever you need them.");
-        kwilt.setLocation("283 Dalhousie St, Ottawa, ON K1N 7E5, Canada");
+        kwilt.setDescription("Kwilt is a photo management application that gives you easy access to all of your photos on the web, no matter where you saved them. Kwilt gives you total control over yout photos by bringing together, all the memories that matter to you the most, whenever you need them.");
+        kwilt.setLocation("Ottawa, ON, Canada");
         kwilt.setWebsiteUrl("http://www.kwiltapp.com");
-        kwilt.setLogoUrl("https://media.licdn.com/mpr/mpr/shrink_200_200/AAEAAQAAAAAAAAjKAAAAJDYzZWUxYzg1LWI0ZDEtNGVlNS04ZWMwLWE4ZGYyODQ0OGE3Mw.png");
+        kwilt.setLogoUrl("http://www.mommyhatescooking.com/wp-content/uploads/2014/11/kwilt3.png");
         kwilt.setFeaturedImageUrls(createKwiltFeaturedImageUrlArray());
+        kwilt.setTags(createKwiltTagsArray());
         return kwilt;
     }
 
@@ -154,6 +189,14 @@ public class JobsDataStore implements JobsDataSource {
         return urls;
     }
 
+    private List<String> createKwiltTagsArray() {
+        List<String> tags = new ArrayList<>();
+        tags.add("#PhotoManagement");
+        tags.add("#MobileFirst");
+        tags.add("#Social");
+        tags.add("#Startup");
+        return tags;
+    }
 
     private Job createMBSJob() {
         Job job = new Job();
@@ -169,9 +212,17 @@ public class JobsDataStore implements JobsDataSource {
         Company mbs = new Company();
         mbs.setName("Magnetic Bear Studios");
         mbs.setDescription("Magnetic Bear Studios is a digital agency based in Ottawa Canada which aims to create beautiful and delightful products");
-        mbs.setLocation("185 Rideau St, Ottawa, ON K1N 9P1, Canada");
+        mbs.setLocation("Ottawa, ON, Canada");
         mbs.setWebsiteUrl("http://www.magneticbear.com");
         mbs.setLogoUrl("http://magneticbear.com/images/mbs.png");
+        mbs.setTags(createMBSTagsArray());
         return mbs;
+    }
+
+    private List<String> createMBSTagsArray() {
+        List<String> tags = new ArrayList<>();
+        tags.add("#MobileFirst");
+        tags.add("#Agency");
+        return tags;
     }
 }

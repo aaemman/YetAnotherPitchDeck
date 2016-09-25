@@ -9,7 +9,7 @@ import android.view.ViewGroup;
 import android.view.ViewParent;
 
 import com.yapd.alexander.yapd.R;
-import com.yapd.alexander.yapd.client.job.JobDetailsActivity;
+import com.yapd.alexander.yapd.client.job_details.JobDetailsActivity;
 import com.yapd.alexander.yapd.client.util.code.SDKVersion;
 import com.yapd.alexander.yapd.client.util.view.common.BaseFragment;
 import com.yapd.alexander.yapd.client.util.widget.featured_section.FeaturedJobsSection;

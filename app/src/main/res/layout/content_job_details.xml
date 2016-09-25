@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.yapd.alexander.yapd.client.job.JobDetailsActivity">
+    tools:context="com.yapd.alexander.yapd.client.job_details.JobDetailsActivity">
 
     <LinearLayout
         android:id="@+id/activity_job_details_data_layout"
@@ -109,6 +109,11 @@
             android:clickable="true"
             android:focusable="true"
             tools:text="Skillshare's mission is to provide the world with access to high-quality learning. " />
+
+        <com.yapd.alexander.yapd.client.util.widget.no_swipe_recycler_view.NoSwipeRecyclerView
+            android:id="@+id/job_details_company_tags_cloud"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
 
         <com.yapd.alexander.yapd.client.util.widget.flat_button.FlatButton
             android:id="@+id/job_details_visit_company_website_button"

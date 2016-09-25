@@ -1,23 +1,44 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.v4.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+<android.support.design.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.yapd.alexander.yapd.client.job.JobDetailsActivity">
+    tools:context=".client.home.home.HomeActivity">
 
-    <LinearLayout
+    <android.support.design.widget.AppBarLayout
+        android:id="@+id/activity_home_appbar_layout"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="vertical">
+        android:layout_height="wrap_content"
+        android:background="@android:color/transparent"
+        android:elevation="@dimen/standard_toolbar_elevation"
+        android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar">
 
-        <ImageView
-            android:id="@+id/view_three_item_featured_section_item_first"
+        <android.support.design.widget.CollapsingToolbarLayout
+            android:id="@+id/activity_home_collapsing_toolbar"
             android:layout_width="match_parent"
             android:layout_height="256dp"
-            android:scaleType="centerCrop"
-            android:transitionName="job_details_logo" />
+            app:contentScrim="@android:color/transparent"
+            app:layout_scrollFlags="scroll|exitUntilCollapsed"
+            app:title="">
+
+            <ImageView
+                android:id="@+id/view_three_item_featured_section_item_first"
+                android:layout_width="match_parent"
+                android:layout_height="256dp"
+                android:scaleType="centerCrop"
+                android:transitionName="job_details_logo"
+                app:layout_collapseMode="parallax" />
+        </android.support.design.widget.CollapsingToolbarLayout>
+    </android.support.design.widget.AppBarLayout>
+
+    <android.support.v4.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior"
+        tools:context="com.yapd.alexander.yapd.client.job_details.JobDetailsActivity">
 
         <include layout="@layout/content_job_details" />
-    </LinearLayout>
 
-</android.support.v4.widget.NestedScrollView>
+    </android.support.v4.widget.NestedScrollView>
+</android.support.design.widget.CoordinatorLayout>

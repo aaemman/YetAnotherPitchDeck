@@ -1,4 +1,4 @@
-package com.yapd.alexander.yapd.client.job;
+package com.yapd.alexander.yapd.client.job_details;
 
 import android.support.annotation.NonNull;
 
@@ -61,7 +61,7 @@ public class JobDetailsPresenter implements Presenter<JobDetailsView> {
         getView().setJobDescription(job.getDescription());
         getView().showFeaturedImages(job.getCompany().getFeaturedImageUrls().size() > 0);
         getView().setFeaturedImageUrls(job.getCompany().getFeaturedImageUrls());
-
+        getView().setCompanyTags(job.getCompany().getTags());
     }
 
     private String getMapUrlForLocation(String location) {
