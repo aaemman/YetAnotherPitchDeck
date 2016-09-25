@@ -15,7 +15,7 @@ public class Company implements Parcelable {
     private String location;
     private String logoUrl;
     private String websiteUrl;
-    private List<String> featuredImageUrls;
+    private List<String> featuredImageUrls = new ArrayList<>();
 
     public Company() {
         //

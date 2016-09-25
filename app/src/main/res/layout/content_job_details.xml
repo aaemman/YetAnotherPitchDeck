@@ -4,8 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.yapd.alexander.yapd.client.job.JobDetailsActivity"
-    tools:showIn="@layout/activity_job_details">
+    tools:context="com.yapd.alexander.yapd.client.job.JobDetailsActivity">
 
     <LinearLayout
         android:id="@+id/activity_job_details_data_layout"
@@ -23,64 +22,85 @@
             app:textStyle="semibold"
             tools:text="VTS" />
 
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <com.yapd.alexander.yapd.client.util.widget.custom_text_view.CustomTextView
+                android:id="@+id/activity_job_details_job_duration"
+                style="@style/Yapd.Text.SectionHeader"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_alignParentTop="true"
+                android:textColor="@color/gray3"
+                app:textStyle="normal"
+                tools:text="2015 - 2016" />
+
+            <com.yapd.alexander.yapd.client.util.widget.custom_text_view.CustomTextView
+                android:id="@+id/activity_job_details_job_title"
+                style="@style/Yapd.Text.SectionHeader"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:layout_centerVertical="true"
+                android:layout_marginRight="@dimen/activity_horizontal_margin"
+                android:layout_toLeftOf="@id/activity_job_details_job_duration"
+                app:textStyle="semibold"
+                tools:text="Software Engineer - Android" />
+        </RelativeLayout>
+
         <com.yapd.alexander.yapd.client.util.widget.expandable_text_view.ExpandableTextView
-            android:id="@+id/activity_job_details_company_description"
+            android:id="@+id/activity_job_details_job_description"
             style="@style/Yapd.Text"
+            android:layout_marginTop="@dimen/activity_vertical_margin"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:background="@drawable/transparent_to_gray_25_background"
             android:clickable="true"
             android:focusable="true"
             tools:text="Skillshare's mission is to provide the world with access to high-quality learning. " />
+    </LinearLayout>
 
-        <HorizontalScrollView
-            android:id="@+id/activity_job_details_featured_images_horizontal_scroll_view"
-            android:layout_width="match_parent"
-            android:layout_height="128dp"
-            android:layout_marginTop="@dimen/activity_vertical_margin" />
+    <HorizontalScrollView
+        android:id="@+id/activity_job_details_featured_images_horizintal_scroll_view"
+        android:layout_width="wrap_content"
+        android:layout_height="256dp"
+        android:layout_below="@id/activity_job_details_data_layout"
+        android:layout_marginBottom="@dimen/activity_vertical_margin"
+        android:layout_marginTop="@dimen/activity_vertical_margin"
+        android:orientation="horizontal"
+        android:scrollbars="none">
 
+        <LinearLayout
+            android:id="@+id/activity_job_details_featured_images_layout"
+            android:layout_width="wrap_content"
+            android:paddingLeft="@dimen/activity_horizontal_margin"
+            android:layout_height="match_parent"
+            android:orientation="horizontal" />
+    </HorizontalScrollView>
+
+    <LinearLayout
+        android:id="@+id/activity_job_details_about_company"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@id/activity_job_details_featured_images_horizintal_scroll_view"
+        android:layout_marginBottom="32dp"
+        android:layout_marginLeft="@dimen/activity_horizontal_margin"
+        android:layout_marginRight="@dimen/activity_horizontal_margin"
+        android:orientation="vertical">
 
         <com.yapd.alexander.yapd.client.util.widget.custom_text_view.CustomTextView
-            android:id="@+id/activity_job_details_my_position_section_title"
-            style="@style/Yapd.Text.Title"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentLeft="true"
-            android:layout_centerVertical="true"
-            android:layout_marginBottom="8dp"
-            android:layout_marginTop="@dimen/activity_vertical_margin"
-            android:text="My Position"
-            app:textStyle="semibold" />
-
-        <RelativeLayout
+            android:id="@+id/activity_job_details_about_company_title"
+            style="@style/Yapd.Text.SectionHeader"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="@dimen/activity_vertical_margin">
-
-            <com.yapd.alexander.yapd.client.util.widget.custom_text_view.CustomTextView
-                android:id="@+id/activity_job_details_job_title"
-                style="@style/Yapd.Text"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_alignParentLeft="true"
-                android:layout_centerVertical="true"
-                app:textStyle="semibold"
-                tools:text="Software Engineer - Android" />
-
-            <com.yapd.alexander.yapd.client.util.widget.custom_text_view.CustomTextView
-                android:id="@+id/activity_job_details_job_duration"
-                style="@style/Yapd.Text"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_alignParentRight="true"
-                android:layout_centerVertical="true"
-                android:textColor="@color/gray3"
-                app:textStyle="normal"
-                tools:text="2015 - 2016" />
-        </RelativeLayout>
+            android:layout_marginBottom="@dimen/activity_vertical_margin"
+            app:textStyle="semibold"
+            tools:text="About VTS" />
 
         <com.yapd.alexander.yapd.client.util.widget.expandable_text_view.ExpandableTextView
-            android:id="@+id/activity_job_details_job_description"
+            android:id="@+id/activity_job_details_company_description"
             style="@style/Yapd.Text"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -89,6 +109,14 @@
             android:clickable="true"
             android:focusable="true"
             tools:text="Skillshare's mission is to provide the world with access to high-quality learning. " />
+
+        <com.yapd.alexander.yapd.client.util.widget.flat_button.FlatButton
+            android:id="@+id/job_details_visit_company_website_button"
+            style="@style/Yapd.Button.Raised"
+            android:layout_width="match_parent"
+            android:layout_marginTop="@dimen/activity_vertical_margin"
+            android:text="@string/visit_website"
+            app:textStyle="semibold" />
     </LinearLayout>
 
     <ImageView
@@ -96,8 +124,7 @@
         android:layout_width="match_parent"
         android:layout_height="256dp"
         android:layout_alignParentBottom="true"
-        android:layout_below="@id/activity_job_details_data_layout"
+        android:layout_below="@id/activity_job_details_about_company"
         android:layout_gravity="bottom"
         android:scaleType="centerCrop" />
-
 </RelativeLayout>

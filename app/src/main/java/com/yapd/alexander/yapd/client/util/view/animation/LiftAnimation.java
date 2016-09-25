@@ -46,13 +46,15 @@ public class LiftAnimation {
     public void lift(View view) {
         if (SDKVersion.isLollipopAndUp()) {
             view.setElevation(mElevateTo);
+            view.setTranslationZ(mElevateTo);
         }
         view.animate().scaleX(mScaleTo).scaleY(mScaleTo).setInterpolator(mInterpolator).setDuration(mDuration).start();
     }
 
     public void release(View view) {
         if (SDKVersion.isLollipopAndUp()) {
-            view.setElevation(mElevateFrom);
+            view.setElevation(mElevateTo);
+            view.setTranslationZ(mElevateTo);
         }
         view.animate().scaleX(1.0f).scaleY(1.0f).setInterpolator(mInterpolator).setDuration(mDuration).start();
     }

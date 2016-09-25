@@ -12,17 +12,23 @@ public interface JobDetailsView {
 
     void setCompanyDescription(String description);
 
-    void setCompanyLocation(String location);
+    void setCompanyLocationMapUrl(String location);
 
     void expandCompanyDescription();
+
+    void showFeaturedImages(boolean shouldShow);
 
     void setFeaturedImageUrls(List<String> imageUrls);
 
     void setJobTitle(String title);
+
+    void showJobDescription(boolean shouldShow);
 
     void setJobDuration(String duration);
 
     void setJobDescription(String description);
 
     void expandJobDescription();
+
+    void openWebsiteWithUrl(String url);
 }

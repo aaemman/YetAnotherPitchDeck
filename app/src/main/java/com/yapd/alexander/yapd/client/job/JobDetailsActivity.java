@@ -3,23 +3,26 @@ package com.yapd.alexander.yapd.client.job;
 import android.content.Context;
 import android.content.Intent;
 import android.graphics.Bitmap;
+import android.net.Uri;
 import android.os.Bundle;
+import android.support.annotation.NonNull;
 import android.support.v7.graphics.Palette;
 import android.view.View;
 import android.widget.HorizontalScrollView;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.request.animation.GlideAnimation;
 import com.bumptech.glide.request.target.BitmapImageViewTarget;
-import com.mypopsy.maps.StaticMap;
 import com.yapd.alexander.yapd.R;
 import com.yapd.alexander.yapd.client.util.view.common.BaseActivity;
+import com.yapd.alexander.yapd.client.util.view.on_touch_listener.LiftAnimationOnTouchListener;
 import com.yapd.alexander.yapd.client.util.widget.expandable_text_view.ExpandableTextView;
+import com.yapd.alexander.yapd.client.util.widget.flat_button.FlatButton;
 import com.yapd.alexander.yapd.core.model.Job;
 
-import java.net.MalformedURLException;
 import java.util.List;
 
 public class JobDetailsActivity extends BaseActivity implements JobDetailsView {
@@ -45,6 +48,7 @@ public class JobDetailsActivity extends BaseActivity implements JobDetailsView {
 
         setupCompanyDesription();
         setupJobDesription();
+        setupVisitWebsiteButton();
         this.job = getIntent().getParcelableExtra(JOB_EXTRA_KEY);
         presenter.loadContentForJob(job);
     }
@@ -55,12 +59,17 @@ public class JobDetailsActivity extends BaseActivity implements JobDetailsView {
 
     private void setupJobDesription() {
         viewBinder.getJobDescriptionTextView().setOnClickListener(view -> presenter.onJobDescriptionClicked());
-        ;
+    }
+
+    private void setupVisitWebsiteButton() {
+        viewBinder.getVisitCompanyWebsiteButton().setOnTouchListener(new LiftAnimationOnTouchListener());
+        viewBinder.getVisitCompanyWebsiteButton().setOnClickListener(view -> presenter.onVisitWebsiteButtonClicked());
     }
 
     @Override
     public void setCompanyName(String name) {
         viewBinder.getCompanyTitleTextView().setText(name);
+        viewBinder.getAboutCompanyTitleTextView().setText(getString(R.string.about_company_title, name));
     }
 
     @Override
@@ -69,13 +78,8 @@ public class JobDetailsActivity extends BaseActivity implements JobDetailsView {
     }
 
     @Override
-    public void setCompanyLocation(String location) {
-        try {
-            String mapUrl = new StaticMap().size(480, 270).marker(StaticMap.Marker.Style.DEFAULT, new StaticMap.GeoPoint(location)).toURL().toString();
-            Glide.with(this).load(mapUrl).crossFade().into(viewBinder.getMapImageView());
-        } catch (MalformedURLException e) {
-            e.printStackTrace();
-        }
+    public void setCompanyLocationMapUrl(String mapUrl) {
+        Glide.with(this).load(mapUrl).crossFade().into(viewBinder.getMapImageView());
     }
 
     @Override
@@ -84,17 +88,36 @@ public class JobDetailsActivity extends BaseActivity implements JobDetailsView {
     }
 
     @Override
+    public void showFeaturedImages(boolean shouldShow) {
+        viewBinder.getFeaturedImagesHorizontalScrollView().setVisibility(shouldShow ? View.VISIBLE : View.GONE);
+    }
+
+    @Override
     public void setFeaturedImageUrls(List<String> imageUrls) {
         for (String url : imageUrls) {
-            ImageView imageView = new ImageView(this);
-            viewBinder.getFeaturedImagesHorizontalScrollView().addView(imageView);
+            ImageView imageView = getNewImageView();
+            viewBinder.getFeaturedImagesLayout().addView(imageView);
             Glide.with(this).load(url).crossFade().into(imageView);
         }
+    }
+
+    @NonNull
+    private ImageView getNewImageView() {
+        ImageView imageView = new ImageView(this);
+        LinearLayout.LayoutParams params = new LinearLayout.LayoutParams(LinearLayout.LayoutParams.WRAP_CONTENT, LinearLayout.LayoutParams.MATCH_PARENT);
+        params.setMargins(0, 0, (int) getResources().getDimension(R.dimen.activity_horizontal_margin), 0);
+        imageView.setLayoutParams(params);
+        return imageView;
     }
 
     @Override
     public void setJobTitle(String title) {
         viewBinder.getJobTitleTextView().setText(title);
+    }
+
+    @Override
+    public void showJobDescription(boolean shouldShow) {
+        viewBinder.getJobDescriptionTextView().setVisibility(shouldShow ? View.VISIBLE : View.GONE);
     }
 
     @Override
@@ -110,6 +133,11 @@ public class JobDetailsActivity extends BaseActivity implements JobDetailsView {
     @Override
     public void expandJobDescription() {
         viewBinder.getJobDescriptionTextView().setExpanded(true);
+    }
+
+    @Override
+    public void openWebsiteWithUrl(String url) {
+        startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse(url)));
     }
 
     @Override
@@ -131,11 +159,14 @@ public class JobDetailsActivity extends BaseActivity implements JobDetailsView {
         private ImageView headerImageView;
         private TextView companyTitleTextView;
         private ExpandableTextView companyDescription;
-        private HorizontalScrollView featuredImagesHorizontalScrollView;
+        private FlatButton visitCompanyWebsiteButton;
+        private LinearLayout featuredImagesRecyclerView;
         private TextView jobTitleTextView;
+        private TextView aboutCompanyTitleTextView;
         private TextView jobDurationTextView;
         private ExpandableTextView jobDescriptionTextView;
         private ImageView mapImageView;
+        private HorizontalScrollView featuredImagesHorizontalScrollView;
 
         public ViewBinder(View view) {
             super(view);
@@ -153,8 +184,12 @@ public class JobDetailsActivity extends BaseActivity implements JobDetailsView {
             return companyDescription = getView(companyDescription, R.id.activity_job_details_company_description);
         }
 
-        public HorizontalScrollView getFeaturedImagesHorizontalScrollView() {
-            return featuredImagesHorizontalScrollView = getView(featuredImagesHorizontalScrollView, R.id.activity_job_details_featured_images_horizontal_scroll_view);
+        public FlatButton getVisitCompanyWebsiteButton() {
+            return visitCompanyWebsiteButton = getView(visitCompanyWebsiteButton, R.id.job_details_visit_company_website_button);
+        }
+
+        public LinearLayout getFeaturedImagesLayout() {
+            return featuredImagesRecyclerView = getView(featuredImagesRecyclerView, R.id.activity_job_details_featured_images_layout);
         }
 
         public TextView getJobTitleTextView() {
@@ -171,6 +206,14 @@ public class JobDetailsActivity extends BaseActivity implements JobDetailsView {
 
         public ImageView getMapImageView() {
             return mapImageView = getView(mapImageView, R.id.activity_job_details_company_location_map_image_view);
+        }
+
+        public TextView getAboutCompanyTitleTextView() {
+            return aboutCompanyTitleTextView = getView(aboutCompanyTitleTextView, R.id.activity_job_details_about_company_title);
+        }
+
+        public HorizontalScrollView getFeaturedImagesHorizontalScrollView() {
+            return featuredImagesHorizontalScrollView = getView(featuredImagesHorizontalScrollView, R.id.activity_job_details_featured_images_horizintal_scroll_view);
         }
     }
 }
