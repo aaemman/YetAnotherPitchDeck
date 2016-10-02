@@ -1,6 +1,16 @@
 <resources>
     <string name="app_name">yapd</string>
     <string name="title_activity_job_details">JobDetailsActivity</string>
+    <string name="action_settings">Settings</string>
+    <string name="more_button_text">more</string>
+    <string name="elipses">…</string>
+    <string name="about_company_title">About %s</string>
+    <string name="visit_website">Visit Website</string>
+    <string name="title_activity_company_details">CompanyDetailsActivity</string>
+    <string name="what_is_company">What is %s?</string>
+    <string name="title_activity_core_values">CoreValuesActivity</string>
+    <string name="title_activity_why_cornell_tech">WhyCornellTechActivity</string>
+    <string name="title_activity_why_me">WhyMeActivity</string>
     <string name="large_text">
         "Material is the metaphor.\n\n"
 
@@ -90,9 +100,4 @@
         "For example, position the FAB to one side of stream of a cards so the FAB won’t interfere "
         "when a user tries to pick up one of cards.\n\n"
     </string>
-    <string name="action_settings">Settings</string>
-    <string name="more_button_text">more</string>
-    <string name="elipses">…</string>
-    <string name="about_company_title">About %s</string>
-    <string name="visit_website">Visit Website</string>
 </resources>

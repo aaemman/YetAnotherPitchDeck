@@ -15,11 +15,11 @@
 
         <com.yapd.alexander.yapd.client.util.widget.custom_text_view.CustomTextView
             android:id="@+id/activity_job_details_company_title"
-            style="@style/Yapd.Text.Title"
+            style="@style/Yapd.Text.Header"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginBottom="@dimen/activity_vertical_margin"
-            app:textStyle="semibold"
+            app:textStyle="bold"
             tools:text="VTS" />
 
         <RelativeLayout
@@ -28,7 +28,7 @@
 
             <com.yapd.alexander.yapd.client.util.widget.custom_text_view.CustomTextView
                 android:id="@+id/activity_job_details_job_duration"
-                style="@style/Yapd.Text.SectionHeader"
+                style="@style/Yapd.Text.SubHeader"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_alignParentRight="true"
@@ -39,23 +39,23 @@
 
             <com.yapd.alexander.yapd.client.util.widget.custom_text_view.CustomTextView
                 android:id="@+id/activity_job_details_job_title"
-                style="@style/Yapd.Text.SectionHeader"
+                style="@style/Yapd.Text.SubHeader"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_alignParentLeft="true"
                 android:layout_centerVertical="true"
                 android:layout_marginRight="@dimen/activity_horizontal_margin"
                 android:layout_toLeftOf="@id/activity_job_details_job_duration"
-                app:textStyle="semibold"
+                app:textStyle="bold"
                 tools:text="Software Engineer - Android" />
         </RelativeLayout>
 
         <com.yapd.alexander.yapd.client.util.widget.expandable_text_view.ExpandableTextView
             android:id="@+id/activity_job_details_job_description"
             style="@style/Yapd.Text"
-            android:layout_marginTop="@dimen/activity_vertical_margin"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
             android:background="@drawable/transparent_to_gray_25_background"
             android:clickable="true"
             android:focusable="true"
@@ -67,17 +67,17 @@
         android:layout_width="wrap_content"
         android:layout_height="256dp"
         android:layout_below="@id/activity_job_details_data_layout"
-        android:layout_marginBottom="@dimen/activity_vertical_margin"
-        android:layout_marginTop="@dimen/activity_vertical_margin"
+        android:layout_marginBottom="32dp"
+        android:layout_marginTop="@dimen/activity_horizontal_margin"
         android:orientation="horizontal"
         android:scrollbars="none">
 
         <LinearLayout
             android:id="@+id/activity_job_details_featured_images_layout"
             android:layout_width="wrap_content"
-            android:paddingLeft="@dimen/activity_horizontal_margin"
             android:layout_height="match_parent"
-            android:orientation="horizontal" />
+            android:orientation="horizontal"
+            android:paddingLeft="@dimen/activity_horizontal_margin" />
     </HorizontalScrollView>
 
     <LinearLayout
@@ -92,11 +92,11 @@
 
         <com.yapd.alexander.yapd.client.util.widget.custom_text_view.CustomTextView
             android:id="@+id/activity_job_details_about_company_title"
-            style="@style/Yapd.Text.SectionHeader"
+            style="@style/Yapd.Text.SubHeader"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="@dimen/activity_vertical_margin"
-            app:textStyle="semibold"
+            android:layout_marginBottom="8dp"
+            app:textStyle="bold"
             tools:text="About VTS" />
 
         <com.yapd.alexander.yapd.client.util.widget.expandable_text_view.ExpandableTextView
@@ -104,24 +104,24 @@
             style="@style/Yapd.Text"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="@dimen/activity_vertical_margin"
+            android:layout_marginBottom="32dp"
             android:background="@drawable/transparent_to_gray_25_background"
             android:clickable="true"
             android:focusable="true"
             tools:text="Skillshare's mission is to provide the world with access to high-quality learning. " />
 
         <com.yapd.alexander.yapd.client.util.widget.no_swipe_recycler_view.NoSwipeRecyclerView
-            android:id="@+id/job_details_company_tags_cloud"
+            android:id="@+id/activity_job_details_company_tags_cloud"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"/>
+            android:layout_height="wrap_content" />
 
         <com.yapd.alexander.yapd.client.util.widget.flat_button.FlatButton
             android:id="@+id/job_details_visit_company_website_button"
             style="@style/Yapd.Button.Raised"
             android:layout_width="match_parent"
-            android:layout_marginTop="@dimen/activity_vertical_margin"
+            android:layout_marginTop="32dp"
             android:text="@string/visit_website"
-            app:textStyle="semibold" />
+            app:textStyle="bold" />
     </LinearLayout>
 
     <ImageView

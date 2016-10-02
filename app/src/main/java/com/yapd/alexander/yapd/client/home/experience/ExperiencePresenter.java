@@ -5,7 +5,8 @@ import android.support.annotation.NonNull;
 import com.yapd.alexander.yapd.client.util.code.common.Presenter;
 import com.yapd.alexander.yapd.client.util.code.rx.RxUtil;
 import com.yapd.alexander.yapd.core.model.Job;
-import com.yapd.alexander.yapd.core.usecase.YapdSdk;
+import com.yapd.alexander.yapd.core.model.Venture;
+import com.yapd.alexander.yapd.core.usecase.common.YapdSdk;
 
 import java.lang.ref.WeakReference;
 import java.util.List;
@@ -68,5 +69,23 @@ public class ExperiencePresenter implements Presenter<ExperienceView> {
 
     public void OnJobClicked(Job job) {
         getView().openJobPage(job);
+    }
+
+    public void loadVentureSection() {
+        subscriptions.add(getventuresObservable().subscribe(new RxUtil.CompactSubscriber<List<Venture>>() {
+            @Override
+            public void onNext(List<Venture> ventures) {
+                super.onNext(ventures);
+                getView().showEntrepreneurshipSection(ventures);
+            }
+        }));
+    }
+
+    private Observable<List<Venture>> getventuresObservable() {
+        return YapdSdk.Entrepreneurship.getVentures();
+    }
+
+    public void onVentureClicked(Venture venture) {
+        getView().openVenture(venture);
     }
 }

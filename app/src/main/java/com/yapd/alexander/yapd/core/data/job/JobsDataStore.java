@@ -43,7 +43,7 @@ public class JobsDataStore implements JobsDataSource {
     private Company createSkillshareCompany() {
         Company skillshare = new Company();
         skillshare.setName("Skillshare");
-        skillshare.setDescription("Skillshare is a learning community for creators. Skillshare's mission is to provide the world with access to high-quality learning. Anyone can take online classes, watch video lessons, create projects, and even teach a class themselves.");
+        skillshare.setDescription("Skillshare is a learning community for creators. Skillshare's mission is to provide the world with access to high-quality learning. Anyone can take online classes, watch video lessons, and even teach a class themselves");
         skillshare.setLocation("Manhattan, NY, USA, 10012");
         skillshare.setWebsiteUrl("http://www.skillshare.com");
         skillshare.setLogoUrl("https://lh3.googleusercontent.com/p4rlGM7m0JB1kg7laBmNv4ajZk_inNkK3reE77_aDFOOtIw_lx0u5YXB4K_2TYkNxflI=w512-rw");
@@ -67,6 +67,10 @@ public class JobsDataStore implements JobsDataSource {
         tags.add("#MobileFirst");
         tags.add("#NYCTech");
         tags.add("#Education");
+        tags.add("#EdTech");
+        tags.add("#ECommerce");
+        tags.add("#MobileVideo");
+        tags.add("#Gameification");
         tags.add("#TwoSidedOpenPlatform");
         tags.add("#NetworkEffects");
         tags.add("#SubscriptionModel");
@@ -90,7 +94,7 @@ public class JobsDataStore implements JobsDataSource {
     private Company createVTS() {
         Company vts = new Company();
         vts.setName("VTS");
-        vts.setDescription("VTS is a commercial leasing and asset management platform for landlords and brokerages currently being used to manage 2.7+ billion square feet of real estate and is being used by over 80 percent of the top 10 global investment managers.");
+        vts.setDescription("VTS gives asset managers & leasing teams a single platform to track deals, manage space & collaborate seamlessly and is currently being used to manage over 2.7 billion square feet of real estate around the world");
         vts.setLocation("Manhattan, USA 10018");
         vts.setWebsiteUrl("http://www.vts.com");
         vts.setLogoUrl("https://lh3.googleusercontent.com/CEbaXbbLLW4KK_xMwCY07Ph3K3IumnYdnuw_FSXrvG3w2AJdlwSjkQaS0gqw-Lc=w512-rw");
@@ -114,6 +118,9 @@ public class JobsDataStore implements JobsDataSource {
         tags.add("#BigData");
         tags.add("#RealEstate");
         tags.add("#NYCTech");
+        tags.add("#MobileVideo");
+        tags.add("#SaaS");
+        tags.add("#EnterpriseSoftware");
         tags.add("#Startup");
         return tags;
     }
@@ -170,7 +177,7 @@ public class JobsDataStore implements JobsDataSource {
     private Company createKwilt() {
         Company kwilt = new Company();
         kwilt.setName("Kwilt");
-        kwilt.setDescription("Kwilt is a photo management application that gives you easy access to all of your photos on the web, no matter where you saved them. Kwilt gives you total control over yout photos by bringing together, all the memories that matter to you the most, whenever you need them.");
+        kwilt.setDescription("Kwilt is a photo management application that gives you easy access to all of your photos on the web, no matter where you saved them. Kwilt gives you total control over your photos by bringing together, all the memories that matter to you the most, whenever you need them.");
         kwilt.setLocation("Ottawa, ON, Canada");
         kwilt.setWebsiteUrl("http://www.kwiltapp.com");
         kwilt.setLogoUrl("http://www.mommyhatescooking.com/wp-content/uploads/2014/11/kwilt3.png");

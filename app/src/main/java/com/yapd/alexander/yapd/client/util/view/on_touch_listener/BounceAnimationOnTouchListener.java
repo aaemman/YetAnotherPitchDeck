@@ -4,8 +4,6 @@ import android.view.MotionEvent;
 import android.view.View;
 import android.view.animation.AccelerateDecelerateInterpolator;
 import android.view.animation.AnticipateOvershootInterpolator;
-import android.view.animation.DecelerateInterpolator;
-import android.view.animation.OvershootInterpolator;
 
 import com.yapd.alexander.yapd.client.util.view.animation.LiftAnimation;
 
@@ -19,9 +17,9 @@ public class BounceAnimationOnTouchListener implements View.OnTouchListener {
     @Override
     public boolean onTouch(View view, MotionEvent motionEvent) {
         if (motionEvent.getAction() == MotionEvent.ACTION_DOWN) {
-            new LiftAnimation().scaleTo(SCALE_TO).interpolator(new AccelerateDecelerateInterpolator()).lift(view);
+            new LiftAnimation().elevateFrom(8f).elevateTo(0).scaleTo(SCALE_TO).interpolator(new AccelerateDecelerateInterpolator()).lift(view);
         } else if (motionEvent.getAction() == MotionEvent.ACTION_UP || motionEvent.getAction() == MotionEvent.ACTION_CANCEL) {
-            new LiftAnimation().interpolator(new AnticipateOvershootInterpolator(OVERSHOOT_TENSION)).release(view);
+            new LiftAnimation().elevateFrom(0).elevateTo(8f).interpolator(new AnticipateOvershootInterpolator(OVERSHOOT_TENSION)).release(view);
         }
         return false;
     }

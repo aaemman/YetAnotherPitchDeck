@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.v4.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    app:layout_behavior="@string/appbar_scrolling_view_behavior"
+    tools:context="com.yapd.alexander.yapd.client.home.about_me.CoreValuesActivity"
+    tools:showIn="@layout/activity_core_values">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_margin="@dimen/activity_horizontal_margin"
+        android:orientation="vertical"
+        tools:context="com.yapd.alexander.yapd.client.job_details.JobDetailsActivity">
+
+        <com.yapd.alexander.yapd.client.util.widget.custom_text_view.CustomTextView
+            style="@style/Yapd.Text.Header"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/activity_horizontal_margin"
+            app:textStyle="bold"
+            android:text="Core Values" />
+
+        <com.yapd.alexander.yapd.client.util.widget.custom_text_view.CustomTextView
+            style="@style/Yapd.Text.SubHeader"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="8dp"
+            app:textStyle="bold"
+            android:text="Integrity" />
+
+        <com.yapd.alexander.yapd.client.util.widget.expandable_text_view.ExpandableTextView
+            style="@style/Yapd.Text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/activity_horizontal_margin"
+            android:background="@drawable/transparent_to_gray_25_background"
+            android:clickable="true"
+            android:focusable="true"
+            android:text="I lead by example, keep my word and believe in maintaining high moral principles. I always take responsibility for my actions and strive to be a better person in all that I do and say. I believe that integrity is a key requirement for everyone especially those involved in business. To this end I always act with integrity in all my dealings with people in my personal as well as professional lives." />
+
+        <com.yapd.alexander.yapd.client.util.widget.custom_text_view.CustomTextView
+            style="@style/Yapd.Text.SubHeader"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="8dp"
+            android:text="Leadership"
+            app:textStyle="bold" />
+
+        <com.yapd.alexander.yapd.client.util.widget.expandable_text_view.ExpandableTextView
+            style="@style/Yapd.Text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/activity_horizontal_margin"
+            android:background="@drawable/transparent_to_gray_25_background"
+            android:clickable="true"
+            android:focusable="true"
+            android:text="I believe that when one is in a position to improve a situation, he or she should take the initiative and lead themselves and others towards the improvement whether it is to alleviate poverty or provide a learning platform. To this end I have demonstrated leadership in many situations, most notably in all of my entrepreneurial ventures and work experiences as explained in my portfolio." />
+
+        <com.yapd.alexander.yapd.client.util.widget.custom_text_view.CustomTextView
+            android:id="@+id/activity_venture_details_solution_title_text_view"
+            style="@style/Yapd.Text.SubHeader"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="8dp"
+            android:text="Adaptability"
+            app:textStyle="bold" />
+
+        <com.yapd.alexander.yapd.client.util.widget.expandable_text_view.ExpandableTextView
+            android:id="@+id/activity_venture_details_solution_text_view"
+            style="@style/Yapd.Text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/activity_horizontal_margin"
+            android:background="@drawable/transparent_to_gray_25_background"
+            android:clickable="true"
+            android:focusable="true"
+            android:text="I believe that as life progresses and situations and circumstances change one should adapt and make the most of every opportunity, to improve their life and the lives of others. To this end I am always in touch with leading edge technology and look for ways in which it can be used to adapt to changing situations and opportunities for myself and others." />
+    </LinearLayout>
+</android.support.v4.widget.NestedScrollView>

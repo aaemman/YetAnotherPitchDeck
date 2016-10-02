@@ -16,8 +16,6 @@ public interface JobDetailsView {
 
     void setCompanyLocationMapUrl(String location);
 
-    void expandCompanyDescription();
-
     void showFeaturedImages(boolean shouldShow);
 
     void setFeaturedImageUrls(List<String> imageUrls);
@@ -29,8 +27,6 @@ public interface JobDetailsView {
     void setJobDuration(String duration);
 
     void setJobDescription(String description);
-
-    void expandJobDescription();
 
     void openWebsiteWithUrl(String url);
 }

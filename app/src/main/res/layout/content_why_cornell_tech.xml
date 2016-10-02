@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.v4.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    app:layout_behavior="@string/appbar_scrolling_view_behavior"
+    tools:context="com.yapd.alexander.yapd.client.home.about_me.CoreValuesActivity"
+    tools:showIn="@layout/activity_core_values">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_margin="@dimen/activity_horizontal_margin"
+        android:orientation="vertical"
+        tools:context="com.yapd.alexander.yapd.client.job_details.JobDetailsActivity">
+
+        <com.yapd.alexander.yapd.client.util.widget.custom_text_view.CustomTextView
+            style="@style/Yapd.Text.Header"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/activity_horizontal_margin"
+            android:text="Why Cornell Tech"
+            app:textStyle="bold" />
+
+        <com.yapd.alexander.yapd.client.util.widget.custom_text_view.CustomTextView
+            style="@style/Yapd.Text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="• Cornell Tech’s MBA program is designed to enhance the New York tech scene by creating a wave of technology focused business leaders; it is this nexus of business and technology that I am very passionate about and am eager to be a part of with the knowledge I would gain from this program.\n\n• This unique technology focused business study program is something that I have not been able to find elsewhere and as a result I am not applying to any other programs.\n\n• I believe that Cornell Tech’s MBA program will enable me to utilize the skills knowledge and experience I have in technology and provide me with the management capabilities required of a future business leader of a technology enterprise.
+" />
+    </LinearLayout>
+</android.support.v4.widget.NestedScrollView>

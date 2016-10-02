@@ -1,30 +1,33 @@
 package com.yapd.alexander.yapd.client.util.widget.expandable_text_view;
 
 import android.content.Context;
+import android.graphics.Canvas;
 import android.graphics.Typeface;
+import android.text.Html;
 import android.text.SpannableStringBuilder;
+import android.text.Spanned;
 import android.text.TextPaint;
 import android.text.method.LinkMovementMethod;
 import android.text.style.ClickableSpan;
 import android.util.AttributeSet;
 import android.view.View;
+import android.widget.TextView;
 
 import com.yapd.alexander.yapd.R;
 import com.yapd.alexander.yapd.client.application.Yapd;
+import com.yapd.alexander.yapd.client.util.code.StringUtil;
 import com.yapd.alexander.yapd.client.util.widget.custom_text_view.CustomTextView;
 
 /**
  * Created by alexander on 9/23/16.
  */
 public class ExpandableTextView extends CustomTextView {
+    private static final int MAX_LINES = 3;
     public static final int MORE_BUTTON_TEXT = R.string.more_button_text;
     public static final int ELIPSES = R.string.elipses;
-    private static final int DEFAULT_TRIM_LENGTH = 220;
-
-    private CharSequence originalText;
-    private CharSequence trimmedText;
-    private boolean trim = true;
-    private int trimLength = DEFAULT_TRIM_LENGTH;
+    private String fullText;
+    private boolean isExpanded = true;
+    private boolean isDrawn = false;
 
     public ExpandableTextView(Context context) {
         this(context, null);
@@ -32,72 +35,62 @@ public class ExpandableTextView extends CustomTextView {
 
     public ExpandableTextView(Context context, AttributeSet attrs) {
         super(context, attrs);
-        setMovementMethod(LinkMovementMethod.getInstance());
-    }
-
-    private void setText() {
-        super.setText(getDisplayableText(), BufferType.SPANNABLE);
-    }
-
-    private CharSequence getDisplayableText() {
-        return trim ? trimmedText : originalText;
+        setClickable(true);
+        setFocusable(true);
+        setOnClickListener(view -> {
+            if (!isExpanded) {
+                isDrawn = false;
+                expand(true);
+                invalidate();
+                requestLayout();
+            }
+        });
     }
 
     @Override
     public void setText(CharSequence text, BufferType type) {
-        originalText = text;
-        trimmedText = getTrimmedText(text);
-        setText();
+        if (fullText == null && text != null && !StringUtil.isEmpty(text.toString())) {
+            fullText = text.toString();
+        }
+        super.setText(text, type);
     }
 
-    private CharSequence getTrimmedText(CharSequence text) {
-        if (originalText != null && originalText.length() > trimLength) {
+    public void expand(boolean shouldExpand) {
+        this.isExpanded = !shouldExpand;
+    }
+
+    @Override
+    protected void onDraw(Canvas canvas) {
+        super.onDraw(canvas);
+        if (!isDrawn) {
+            isDrawn = true;
             String expandText = getContext().getString(MORE_BUTTON_TEXT);
-            return addExpandTextToText(text.subSequence(0, trimLength - expandText.length() + 1) + getContext().getString(ELIPSES) + " " + expandText, getResources().getString(MORE_BUTTON_TEXT));
-        } else {
-            return originalText;
+            if (isExpanded && MAX_LINES > 0 && getLineCount() > MAX_LINES) {
+                isExpanded = false;
+                int lineEndIndex = getLayout().getLineEnd(MAX_LINES - 1);
+                String text = fullText.subSequence(0, lineEndIndex - expandText.length() + 1) + getContext().getString(ELIPSES) + " " + expandText;
+                updateTextToIncludeMoreButton(text, expandText);
+            } else {
+                isExpanded = true;
+                setText(fullText);
+            }
         }
     }
 
-    public CharSequence getOriginalText() {
-        return originalText;
+    protected void updateTextToIncludeMoreButton(String text, String expandText) {
+        setText(addClickablePartTextViewResizable(Html.fromHtml(text), expandText), TextView.BufferType.SPANNABLE);
+        setMovementMethod(LinkMovementMethod.getInstance());
     }
 
-    public void setTrimLength(int trimLength) {
-        this.trimLength = trimLength;
-        trimmedText = getTrimmedText(originalText);
-        setText();
-    }
-
-    public int getTrimLength() {
-        return trimLength;
-    }
-
-    public void setExpanded(boolean shouldExpand) {
-        trim = !shouldExpand;
-        setText();
-    }
-
-    protected SpannableStringBuilder addExpandTextToText(String text, String expandText) {
-        return addClickablePartTextViewResizable(text, expandText);
-    }
-
-    private SpannableStringBuilder addClickablePartTextViewResizable(final String content, final String expandText) {
+    private SpannableStringBuilder addClickablePartTextViewResizable(final Spanned content, final String expandText) {
         SpannableStringBuilder spannableStringBuilder = new SpannableStringBuilder(content);
 
-        if (shouldCreateClickableSpan(content, expandText)) {
-            spannableStringBuilder.setSpan(new MySpannable(false), content.length() - expandText.length(), content.length(), 0);
-        }
+        spannableStringBuilder.setSpan(new MySpannable(false), content.length() - expandText.length(), content.length(), 0);
         return spannableStringBuilder;
     }
 
-    private boolean shouldCreateClickableSpan(String content, String expandText) {
-        return content.toString().contains(getContext().getString(ELIPSES)) && SpannedStringHasExpandTextAtTheEndOfIt(content, expandText);
-    }
 
-    private boolean SpannedStringHasExpandTextAtTheEndOfIt(String spannedString, String expandText) {
-        return spannedString.subSequence(spannedString.length() - expandText.length(), spannedString.length()).toString().equals(expandText);
-    }
+    // ------ HELPERS ------
 
     public class MySpannable extends ClickableSpan {
         private boolean isUnderline = true;

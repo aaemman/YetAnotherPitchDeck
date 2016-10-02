@@ -13,7 +13,10 @@ import com.yapd.alexander.yapd.client.job_details.JobDetailsActivity;
 import com.yapd.alexander.yapd.client.util.code.SDKVersion;
 import com.yapd.alexander.yapd.client.util.view.common.BaseFragment;
 import com.yapd.alexander.yapd.client.util.widget.featured_section.FeaturedJobsSection;
+import com.yapd.alexander.yapd.client.util.widget.featured_section.FeaturedVentureSection;
+import com.yapd.alexander.yapd.client.venture_details.VentureDetailsActivity;
 import com.yapd.alexander.yapd.core.model.Job;
+import com.yapd.alexander.yapd.core.model.Venture;
 
 import java.util.List;
 
@@ -45,10 +48,21 @@ public class ExperienceFragment extends BaseFragment implements ExperienceView {
         initializeContentView(container);
         viewBinder = new ViewBinder(contentView);
         presenter.attachToView(this);
+        setupEnrepreneurshipSection();
         setupCareerPathSection();
 
         presenter.loadCareerPathSection();
+        presenter.loadVentureSection();
         return contentView;
+    }
+
+    private void setupEnrepreneurshipSection() {
+        viewBinder.getFeaturedVentureSectionRow1().setOnItemClickListener((venture, view) -> {
+            presenter.onVentureClicked(venture);
+        });
+        viewBinder.getFeaturedVentureSectionRow2().setOnItemClickListener((venture, view) -> {
+            presenter.onVentureClicked(venture);
+        });
     }
 
     private void setupCareerPathSection() {
@@ -77,17 +91,38 @@ public class ExperienceFragment extends BaseFragment implements ExperienceView {
         viewBinder.getJobsItemFeaturedSection().setItems(jobs);
     }
 
+    @Override
+    public void showEntrepreneurshipSection(List<Venture> ventures) {
+        viewBinder.getFeaturedVentureSectionRow1().setItems(ventures);
+        viewBinder.getFeaturedVentureSectionRow2().setItems(ventures.subList(2, ventures.size()));
+    }
+
+    @Override
+    public void openVenture(Venture venture) {
+        getActivity().startActivity(VentureDetailsActivity.getLaunchIntent(getContext(), venture));
+    }
+
     // ------ VIEW BINDER ------
 
     private class ViewBinder extends com.yapd.alexander.yapd.client.util.view.common.ViewBinder {
-        private FeaturedJobsSection threeItemFeaturedSection;
+        private FeaturedVentureSection featuredVentureSectionRow1;
+        private FeaturedVentureSection featuredVentureSectionRow2;
+        private FeaturedJobsSection featuredJobsSection;
 
         public ViewBinder(View view) {
             super(view);
         }
 
+        public FeaturedVentureSection getFeaturedVentureSectionRow1() {
+            return featuredVentureSectionRow1 = getView(featuredVentureSectionRow1, R.id.fragment_experience_ventures_row_1);
+        }
+
+        public FeaturedVentureSection getFeaturedVentureSectionRow2() {
+            return featuredVentureSectionRow2 = getView(featuredVentureSectionRow2, R.id.fragment_experience_ventures_row_2);
+        }
+
         public FeaturedJobsSection getJobsItemFeaturedSection() {
-            return threeItemFeaturedSection = getView(threeItemFeaturedSection, R.id.fragment_experience_career_path_featured_jobs_section);
+            return featuredJobsSection = getView(featuredJobsSection, R.id.fragment_experience_career_path_featured_jobs_section);
         }
     }
 }

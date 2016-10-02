@@ -14,7 +14,7 @@ import com.yapd.alexander.yapd.client.application.Yapd;
  */
 public class CustomTextView extends TextView {
 
-    private static final Font[] fonts = {Font.NORMAL, Font.BOLD};
+    private static final Font[] fonts = {Font.NORMAL, Font.BOLD, Font.ITALIC};
 
     public CustomTextView(Context context) {
         this(context, null);
@@ -57,8 +57,9 @@ public class CustomTextView extends TextView {
     }
 
     public enum Font {
-        NORMAL(Typeface.createFromAsset(Yapd.getStaticResources().getAssets(), "fonts/Roboto-Light.ttf")),
-        BOLD(Typeface.createFromAsset(Yapd.getStaticResources().getAssets(), "fonts/Roboto-Regular.ttf"));
+        NORMAL(Typeface.createFromAsset(Yapd.getStaticResources().getAssets(), "fonts/OpenSans-Light.ttf")),
+        BOLD(Typeface.createFromAsset(Yapd.getStaticResources().getAssets(), "fonts/Roboto-Regular.ttf")),
+        ITALIC(Typeface.createFromAsset(Yapd.getStaticResources().getAssets(), "fonts/Roboto-LightItalic.ttf"));
 
         public Typeface typeface;
 

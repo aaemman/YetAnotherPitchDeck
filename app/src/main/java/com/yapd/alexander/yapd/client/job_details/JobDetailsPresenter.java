@@ -73,14 +73,6 @@ public class JobDetailsPresenter implements Presenter<JobDetailsView> {
         return null;
     }
 
-    public void onCompanyDescriptionClicked() {
-        getView().expandCompanyDescription();
-    }
-
-    public void onJobDescriptionClicked() {
-        getView().expandJobDescription();
-    }
-
     public void onVisitWebsiteButtonClicked() {
         getView().openWebsiteWithUrl(job.getCompany().getWebsiteUrl());
     }

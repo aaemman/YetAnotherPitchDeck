@@ -61,6 +61,7 @@ dependencies {
     compile 'de.hdodenhof:circleimageview:1.2.2'
     compile "com.android.support:palette-v7:${supportLibVersion}"
     compile 'com.github.renaudcerrato:static-maps-api:1.0.2'
+    compile 'com.github.renaudcerrato:ViewPagerIndicator:2.4.1-gradle@aar'
 
     compile 'io.reactivex:rxandroid:1.0.1'
     compile 'io.reactivex:rxjava:1.0.14'

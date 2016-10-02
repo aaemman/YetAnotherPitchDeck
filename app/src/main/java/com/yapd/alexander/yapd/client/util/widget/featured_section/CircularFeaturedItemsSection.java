@@ -15,7 +15,7 @@ import java.util.List;
 /**
  * Created by alexander on 9/22/16.
  */
-public abstract class CircularFeaturedItemsSection<T> extends FrameLayout {
+public abstract class CircularFeaturedItemsSection<T> extends FrameLayout implements FeaturedItemsSection<T> {
     public static final int LAYOUT = R.layout.view_circular_featured_items_section;
     private ViewBinder viewBinder;
     private OnItemClickListener<T> onItemClickListener;
@@ -57,10 +57,12 @@ public abstract class CircularFeaturedItemsSection<T> extends FrameLayout {
         }
     }
 
+    @Override
     public void setOnItemClickListener(final OnItemClickListener<T> onItemClickListener) {
         this.onItemClickListener = onItemClickListener;
     }
 
+    @Override
     public void setItems(List<T> items) {
         this.items = items;
     }
@@ -101,9 +103,5 @@ public abstract class CircularFeaturedItemsSection<T> extends FrameLayout {
         public ImageView getFifthFeaturedItem() {
             return fifthFeaturedItem = getView(fifthFeaturedItem, R.id.view_three_item_featured_section_item_fifth);
         }
-    }
-
-    public interface OnItemClickListener<T> {
-        void onItemClicked(T t, View view);
     }
 }

@@ -15,22 +15,11 @@
 
     <com.yapd.alexander.yapd.client.util.widget.custom_text_view.CustomTextView
         android:id="@+id/view_section_header_text_view"
-        style="@style/Yapd.Text.SectionHeader"
+        style="@style/Yapd.Text.SubHeader"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentLeft="true"
         android:layout_centerVertical="true"
-        app:textStyle="semibold"
+        app:textStyle="bold"
         tools:text="Entrepreneurship" />
-
-    <com.yapd.alexander.yapd.client.util.widget.custom_text_view.CustomTextView
-        android:id="@+id/view_section_header_view_all_text_view"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentRight="true"
-        android:layout_centerVertical="true"
-        android:gravity="center_vertical"
-        android:text="View All"
-        android:textColor="@color/colorPrimary"
-        app:textStyle="semibold" />
 </RelativeLayout>

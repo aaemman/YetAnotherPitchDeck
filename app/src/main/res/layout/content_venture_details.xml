@@ -1,0 +1,139 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/activity_job_details_about_company"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_below="@id/activity_job_details_featured_images_horizintal_scroll_view"
+    android:layout_marginLeft="@dimen/activity_horizontal_margin"
+    android:layout_marginRight="@dimen/activity_horizontal_margin"
+    android:orientation="vertical"
+    tools:context="com.yapd.alexander.yapd.client.job_details.JobDetailsActivity">
+
+    <com.yapd.alexander.yapd.client.util.widget.custom_text_view.CustomTextView
+        android:id="@+id/activity_venture_details_company_name"
+        style="@style/Yapd.Text.Header"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:textStyle="bold"
+        tools:text="Study Room" />
+
+    <com.yapd.alexander.yapd.client.util.widget.custom_text_view.CustomTextView
+        android:id="@+id/activity_venture_details_venture_description"
+        style="@style/Yapd.Text.SubHeader"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="32dp"
+        android:layout_marginTop="32dp"
+        android:gravity="center"
+        app:textStyle="italic"
+        tools:text="&quot;StudyRoom is a mobile first, gamified question and answer platform for the classroom&quot;" />
+
+
+    <com.yapd.alexander.yapd.client.util.widget.custom_text_view.CustomTextView
+        android:id="@+id/activity_venture_details_company_description_title_text_view"
+        style="@style/Yapd.Text.SubHeader"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="8dp"
+        app:textStyle="bold"
+        tools:text="What is StudyRoom" />
+
+    <com.yapd.alexander.yapd.client.util.widget.expandable_text_view.ExpandableTextView
+        android:id="@+id/activity_venture_details_company_description_text_view"
+        style="@style/Yapd.Text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="32dp"
+        android:background="@drawable/transparent_to_gray_25_background"
+        android:clickable="true"
+        android:focusable="true"
+        tools:text="Skillshare's mission is to provide the world with access to high-quality learning. " />
+
+    <com.yapd.alexander.yapd.client.util.widget.custom_text_view.CustomTextView
+        android:id="@+id/activity_venture_details_problem_title_text_view"
+        style="@style/Yapd.Text.SubHeader"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="8dp"
+        android:text="What problem did we solve?"
+        app:textStyle="bold" />
+
+    <com.yapd.alexander.yapd.client.util.widget.expandable_text_view.ExpandableTextView
+        android:id="@+id/activity_venture_details_problem_text_view"
+        style="@style/Yapd.Text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="32dp"
+        android:background="@drawable/transparent_to_gray_25_background"
+        android:clickable="true"
+        android:focusable="true"
+        tools:text="Skillshare's mission is to provide the world with access to high-quality learning. " />
+
+    <com.yapd.alexander.yapd.client.util.widget.custom_text_view.CustomTextView
+        android:id="@+id/activity_venture_details_solution_title_text_view"
+        style="@style/Yapd.Text.SubHeader"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="8dp"
+        android:text="What was the solution?"
+        app:textStyle="bold" />
+
+    <com.yapd.alexander.yapd.client.util.widget.expandable_text_view.ExpandableTextView
+        android:id="@+id/activity_venture_details_solution_text_view"
+        style="@style/Yapd.Text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="32dp"
+        android:background="@drawable/transparent_to_gray_25_background"
+        android:clickable="true"
+        android:focusable="true"
+        tools:text="Skillshare's mission is to provide the world with access to high-quality learning. " />
+
+    <com.yapd.alexander.yapd.client.util.widget.custom_text_view.CustomTextView
+        android:id="@+id/activity_venture_details_business_model_title_text_view"
+        style="@style/Yapd.Text.SubHeader"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="8dp"
+        android:text="What was the business model?"
+        app:textStyle="bold" />
+
+    <com.yapd.alexander.yapd.client.util.widget.expandable_text_view.ExpandableTextView
+        android:id="@+id/activity_venture_details_business_model_text_view"
+        style="@style/Yapd.Text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="32dp"
+        android:background="@drawable/transparent_to_gray_25_background"
+        android:clickable="true"
+        android:focusable="true"
+        tools:text="Skillshare's mission is to provide the world with access to high-quality learning. " />
+
+    <com.yapd.alexander.yapd.client.util.widget.custom_text_view.CustomTextView
+        android:id="@+id/activity_venture_details_lesson_title_text_view"
+        style="@style/Yapd.Text.SubHeader"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="8dp"
+        android:text="What did we learn?"
+        app:textStyle="bold" />
+
+    <com.yapd.alexander.yapd.client.util.widget.expandable_text_view.ExpandableTextView
+        android:id="@+id/activity_venture_details_lesson_text_view"
+        style="@style/Yapd.Text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="32dp"
+        android:background="@drawable/transparent_to_gray_25_background"
+        android:clickable="true"
+        android:focusable="true"
+        tools:text="Skillshare's mission is to provide the world with access to high-quality learning. " />
+
+    <com.yapd.alexander.yapd.client.util.widget.no_swipe_recycler_view.NoSwipeRecyclerView
+        android:id="@+id/activity_job_details_company_tags_cloud"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+</LinearLayout>

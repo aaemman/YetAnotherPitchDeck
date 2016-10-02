@@ -22,6 +22,27 @@
         <activity
             android:name=".client.job_details.JobDetailsActivity"
             android:label="@string/title_activity_job_details"
+            android:theme="@style/AppTheme" />
+        <activity
+            android:name=".client.venture_details.VentureDetailsActivity"
+            android:label="@string/title_activity_company_details"
+            android:parentActivityName=".client.home.home.HomeActivity"
+            android:theme="@style/AppTheme">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.yapd.alexander.yapd.client.home.home.HomeActivity" />
+        </activity>
+        <activity
+            android:name=".client.home.about_me.CoreValuesActivity"
+            android:label="@string/title_activity_core_values"
+            android:theme="@style/AppTheme" />
+        <activity
+            android:name=".client.home.about_me.WhyCornellTechActivity"
+            android:label="@string/title_activity_why_cornell_tech"
+            android:theme="@style/AppTheme" />
+        <activity
+            android:name=".client.home.about_me.WhyMeActivity"
+            android:label="@string/title_activity_why_me"
             android:theme="@style/AppTheme"></activity>
     </application>
 

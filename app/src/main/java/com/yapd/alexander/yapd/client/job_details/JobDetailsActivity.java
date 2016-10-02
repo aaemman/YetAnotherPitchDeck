@@ -47,21 +47,10 @@ public class JobDetailsActivity extends BaseActivity implements JobDetailsView {
 
         viewBinder = new ViewBinder(findViewById(android.R.id.content));
         presenter.attachToView(this);
-
-        setupCompanyDesription();
-        setupJobDesription();
         setupVisitWebsiteButton();
         setupCompanyTagCloud();
         this.job = getIntent().getParcelableExtra(JOB_EXTRA_KEY);
         presenter.loadContentForJob(job);
-    }
-
-    private void setupCompanyDesription() {
-        viewBinder.getCompanyDescription().setOnClickListener(view -> presenter.onCompanyDescriptionClicked());
-    }
-
-    private void setupJobDesription() {
-        viewBinder.getJobDescriptionTextView().setOnClickListener(view -> presenter.onJobDescriptionClicked());
     }
 
     private void setupVisitWebsiteButton() {
@@ -92,11 +81,6 @@ public class JobDetailsActivity extends BaseActivity implements JobDetailsView {
     @Override
     public void setCompanyLocationMapUrl(String mapUrl) {
         Glide.with(this).load(mapUrl).crossFade().into(viewBinder.getMapImageView());
-    }
-
-    @Override
-    public void expandCompanyDescription() {
-        viewBinder.getCompanyDescription().setExpanded(true);
     }
 
     @Override
@@ -140,11 +124,6 @@ public class JobDetailsActivity extends BaseActivity implements JobDetailsView {
     @Override
     public void setJobDescription(String description) {
         viewBinder.getJobDescriptionTextView().setText(description);
-    }
-
-    @Override
-    public void expandJobDescription() {
-        viewBinder.getJobDescriptionTextView().setExpanded(true);
     }
 
     @Override
@@ -230,7 +209,7 @@ public class JobDetailsActivity extends BaseActivity implements JobDetailsView {
         }
 
         public NoSwipeRecyclerView getCompanyTagCloud() {
-            return companyTagCloud = getView(companyTagCloud, R.id.job_details_company_tags_cloud);
+            return companyTagCloud = getView(companyTagCloud, R.id.activity_job_details_company_tags_cloud);
         }
     }
 }

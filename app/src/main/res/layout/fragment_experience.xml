@@ -2,15 +2,15 @@
 <android.support.v4.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
-    android:clipChildren="false"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:clipChildren="false">
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_marginBottom="8dp"
-        android:clipChildren="false"
         android:layout_marginTop="8dp"
+        android:clipChildren="false"
         android:orientation="vertical">
 
         <com.yapd.alexander.yapd.client.util.widget.section_header.SectionHeader
@@ -20,21 +20,37 @@
             android:layout_marginBottom="8dp"
             app:title="Entrepreneurship" />
 
+        <com.yapd.alexander.yapd.client.util.widget.featured_section.FeaturedVentureSection
+            android:id="@+id/fragment_experience_ventures_row_1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="8dp"
+            android:layout_marginLeft="@dimen/activity_horizontal_margin"
+            android:layout_marginRight="@dimen/activity_horizontal_margin" />
+
+        <com.yapd.alexander.yapd.client.util.widget.featured_section.FeaturedVentureSection
+            android:id="@+id/fragment_experience_ventures_row_2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="8dp"
+            android:layout_marginLeft="@dimen/activity_horizontal_margin"
+            android:layout_marginRight="@dimen/activity_horizontal_margin" />
+
         <com.yapd.alexander.yapd.client.util.widget.section_header.SectionHeader
             android:id="@+id/fragment_experience_career_path_section_header"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginBottom="8dp"
             android:layout_marginTop="@dimen/activity_vertical_margin"
-            app:title="Career Path" />
+            app:title="Software &amp; Product Development" />
 
         <com.yapd.alexander.yapd.client.util.widget.featured_section.FeaturedJobsSection
             android:id="@+id/fragment_experience_career_path_featured_jobs_section"
             android:layout_width="match_parent"
-            android:clipChildren="false"
             android:layout_height="wrap_content"
             android:layout_marginLeft="@dimen/activity_horizontal_margin"
-            android:layout_marginRight="@dimen/activity_horizontal_margin" />
+            android:layout_marginRight="@dimen/activity_horizontal_margin"
+            android:clipChildren="false" />
 
         <com.yapd.alexander.yapd.client.util.widget.section_header.SectionHeader
             android:id="@+id/fragment_experience_accomplishments_section_header"
