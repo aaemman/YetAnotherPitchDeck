@@ -36,7 +36,7 @@ public class SlidesPageAdapter extends PagerAdapter {
         View itemView = LayoutInflater.from(container.getContext()).inflate(R.layout.view_venture_details_slide, container, false);
 
         ImageView imageView = (ImageView) itemView.findViewById(R.id.view_venture_details_slide_image_view);
-        Glide.with(container.getContext()).load(urls.get(position)).crossFade().into(imageView);
+        Glide.with(container.getContext()).load(urls.get(position)).into(imageView);
 
         container.addView(itemView);
 

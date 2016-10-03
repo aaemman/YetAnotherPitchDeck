@@ -12,7 +12,8 @@
         android:background="@color/gray25"
         android:clickable="true"
         android:focusable="true"
-        android:minHeight="115dp" />
+        android:minHeight="115dp"
+        android:scaleType="centerCrop" />
 
     <Space
         android:layout_width="8dp"
@@ -27,6 +28,7 @@
         android:background="@color/gray25"
         android:clickable="true"
         android:focusable="true"
-        android:minHeight="115dp" />
+        android:minHeight="115dp"
+        android:scaleType="centerCrop" />
 
 </LinearLayout>
