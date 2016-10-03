@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <android.support.v4.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:paddingBottom="@dimen/activity_horizontal_margin"
+            android:paddingTop="@dimen/activity_horizontal_margin">
+
+            <com.yapd.alexander.yapd.client.util.widget.section_header.SectionHeader
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="8dp"
+                app:title="Growth Plan" />
+
+            <com.yapd.alexander.yapd.client.util.widget.custom_text_view.CustomTextView
+                style="@style/Yapd.Text"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/activity_vertical_margin"
+                android:layout_marginRight="@dimen/activity_vertical_margin"
+                android:text="• I would like to use the knowledge and connections that I will have access to by doing this MBA in order to seed my entrepreneurial ventures in technology and start a mobile first company based in New York City.\n\n• Having been involved in startups from various different avenues, such as my own endeavours and others in Canada and New York, I am very passionate about contributing to and helping to cultivate the startup ecosystem in New York\n\n• Over the long term I would like to leverage my experience, connections and capital gained to invest in and advise other similar ventures, which are also part of the New York City Tech Scene." />
+
+        </LinearLayout>
+    </android.support.v4.widget.NestedScrollView>
+</LinearLayout>

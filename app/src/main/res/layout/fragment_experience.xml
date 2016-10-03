@@ -66,7 +66,7 @@
             android:layout_height="wrap_content"
             android:layout_marginLeft="@dimen/activity_horizontal_margin"
             android:layout_marginRight="@dimen/activity_horizontal_margin"
-            android:text="• Invited to present at education conference and it was well received\n• Published paper on StudyRoom at queens university\n• Was offered $30,000 in seed funding for StudyRoom\n• Single handedly built Skillshare’s Android app which was featured on the Google Play Store home page twice in 2 months resulting in an additional 15,000+ downloads\n• Improved Skillshare Android presence resulting in an increase of downloads by over 650% within 11 months\n• Member of the International High IQ Society" />
+            android:text="• Invited to present at education conference and it was well received\n\n• Published paper on StudyRoom at queens university\n\n• Was offered $30,000 in seed funding for StudyRoom\n\n• Single handedly built Skillshare’s Android app which was featured on the Google Play Store home page twice in 2 months resulting in an additional 15,000+ downloads\n\n• Improved Skillshare Android presence resulting in an increase of downloads by over 650% within 11 months\n\n• Member of the International High IQ Society" />
 
     </LinearLayout>
 </android.support.v4.widget.NestedScrollView>

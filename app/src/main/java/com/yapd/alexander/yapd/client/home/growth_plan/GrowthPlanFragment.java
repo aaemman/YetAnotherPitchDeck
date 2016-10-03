@@ -1,4 +1,4 @@
-package com.yapd.alexander.yapd.client.home.sample;
+package com.yapd.alexander.yapd.client.home.growth_plan;
 
 import android.os.Bundle;
 import android.support.annotation.Nullable;
@@ -13,8 +13,8 @@ import com.yapd.alexander.yapd.client.util.view.common.BaseFragment;
 /**
  * Created by alexander on 9/21/16.
  */
-public class SampleFragment extends BaseFragment {
-    public static final int LAYOUT = R.layout.fragment_sample;
+public class GrowthPlanFragment extends BaseFragment {
+    public static final int LAYOUT = R.layout.fragment_growth_plan;
     private View contentView;
 
 
