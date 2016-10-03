@@ -8,10 +8,10 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_marginBottom="8dp"
-        android:layout_marginTop="8dp"
         android:clipChildren="false"
-        android:orientation="vertical">
+        android:orientation="vertical"
+        android:paddingBottom="@dimen/activity_horizontal_margin"
+        android:paddingTop="@dimen/activity_horizontal_margin">
 
         <com.yapd.alexander.yapd.client.util.widget.section_header.SectionHeader
             android:id="@+id/fragment_experience_entrepreneurship_section_header"
@@ -59,6 +59,14 @@
             android:layout_marginBottom="8dp"
             android:layout_marginTop="@dimen/activity_vertical_margin"
             app:title="Accomplishments" />
+
+        <com.yapd.alexander.yapd.client.util.widget.custom_text_view.CustomTextView
+            style="@style/Yapd.Text"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/activity_horizontal_margin"
+            android:layout_marginRight="@dimen/activity_horizontal_margin"
+            android:text="• Invited to present at education conference and it was well received\n• Published paper on StudyRoom at queens university\n• Was offered $30,000 in seed funding for StudyRoom\n• Single handedly built Skillshare’s Android app which was featured on the Google Play Store home page twice in 2 months resulting in an additional 15,000+ downloads\n• Improved Skillshare Android presence resulting in an increase of downloads by over 650% within 11 months\n• Member of the International High IQ Society" />
 
     </LinearLayout>
 </android.support.v4.widget.NestedScrollView>

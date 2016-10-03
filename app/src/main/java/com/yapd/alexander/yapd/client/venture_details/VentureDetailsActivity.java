@@ -10,6 +10,7 @@ import android.widget.TextView;
 import com.viewpagerindicator.CirclePageIndicator;
 import com.viewpagerindicator.PageIndicator;
 import com.yapd.alexander.yapd.R;
+import com.yapd.alexander.yapd.client.util.code.StringUtil;
 import com.yapd.alexander.yapd.client.util.view.common.BaseActivity;
 import com.yapd.alexander.yapd.core.model.Venture;
 
@@ -30,7 +31,7 @@ public class VentureDetailsActivity extends BaseActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_venture_details);
-        setStatusBarColorResource(           R.color.black);
+        setStatusBarColorResource(R.color.black);
         venture = getIntent().getParcelableExtra(VENTURE_KEY);
         viewBinder = new ViewBinder(findViewById(android.R.id.content));
         setupViewPager(venture.getCompany().getFeaturedImageUrls());
@@ -40,7 +41,10 @@ public class VentureDetailsActivity extends BaseActivity {
 
     private void setFieldsForVenture(Venture venture) {
         viewBinder.getCompanyName().setText(venture.getCompany().getName());
-        viewBinder.getVentureDescriptionTextView().setText(venture.getDescription());
+        viewBinder.getVentureDescriptionTextView().setVisibility(StringUtil.isEmpty(venture.getDescription()) ? View.GONE : View.VISIBLE);
+        if (!StringUtil.isEmpty(venture.getDescription())) {
+            viewBinder.getVentureDescriptionTextView().setText(venture.getDescription());
+        }
         viewBinder.getCompanyDescriptionTitle().setText(getString(R.string.what_is_company, venture.getCompany().getName()));
         viewBinder.getCompanyDescription().setText(venture.getCompany().getDescription());
         viewBinder.getVentureProblem().setText(venture.getProblem());

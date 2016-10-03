@@ -5,7 +5,6 @@ import android.util.AttributeSet;
 import android.widget.ImageView;
 
 import com.bumptech.glide.Glide;
-import com.yapd.alexander.yapd.client.util.code.SDKVersion;
 import com.yapd.alexander.yapd.core.model.Job;
 
 import java.util.List;
@@ -40,9 +39,6 @@ public class FeaturedJobsSection extends CircularFeaturedItemsSection<Job> {
         imageView.setVisibility(items.size() > minNumberOfItems ? VISIBLE : INVISIBLE);
         if (items.size() > minNumberOfItems) {
             Glide.with(getContext()).load(items.get(minNumberOfItems).getCompany().getLogoUrl()).crossFade().into(imageView);
-            if (SDKVersion.isLollipopAndUp()) {
-                imageView.setTransitionName("job_details_logo");
-            }
         }
     }
 }
